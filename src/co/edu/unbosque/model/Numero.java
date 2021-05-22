@@ -6,6 +6,6 @@ public class Numero {
     public Numero(int n) {
         numeroAleatorio = n;
     }
-    int test;
+    String prueba = "Estoy creando esto para ver como funciona github en eclipse java";
 
 }
