@@ -65,43 +65,13 @@ public class PanelOpciones extends JPanel {
         cantidadIntentos.setBounds(243, 110, 140, 20);
         add(cantidadIntentos);
 
-/*        if(cantidadDigitos.getSelectedItem().toString().equals("1")) {
-            getCantidadIntentos().removeAllItems();
-            getCantidadIntentos().addItem(1);
-            getCantidadIntentos().addItem(2);
-            getCantidadIntentos().addItem(3);
-            getCantidadIntentos().addItem(4);
-            getCantidadIntentos().addItem(5);
-        } else if (cantidadDigitos.getSelectedItem().toString().equals("2")) {
-            getCantidadIntentos().removeAllItems();
-            getCantidadIntentos().addItem(1);
-            getCantidadIntentos().addItem(2);
-            getCantidadIntentos().addItem(3);
-            getCantidadIntentos().addItem(4);
-            getCantidadIntentos().addItem(5);
-            getCantidadIntentos().addItem(6);
-            getCantidadIntentos().addItem(7);
-            getCantidadIntentos().addItem(8);
-            getCantidadIntentos().addItem(9);
-            getCantidadIntentos().addItem(10);
-        }*/
-        //seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
-/*        getCantidadIntentos().removeAllItems();
-        for (int i = 1; i <= (int) Objects.requireNonNull(getCantidadDigitos().getSelectedItem()); i++) {
-            System.out.println(i);
-            getCantidadIntentos().addItem(i);
-            repaint();
-        }*/
-
         repetirDigitos = new JComboBox<>(new String[]{"Si", "No"});
         repetirDigitos.setBounds(243, 80, 140, 20);
         add(repetirDigitos);
 
-
         modoDeJuego = new JComboBox<>(new String[]{"Jugador vs Jugador", "Jugador vs Máquina"});
         modoDeJuego.setBounds(243, 140, 140, 20);
         add(modoDeJuego);
-
 
         botonEmpezarRobo = new JButton("<html><center>Empezar<br>el robo</html>");
         botonEmpezarRobo.setBounds(82, 180, 120, 32);

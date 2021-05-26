@@ -36,18 +36,21 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
 
-        if (comando.equals("VAMOS_A_ROBAR")) {
-            ventanaPrincipal.getPanelBienvenida().setVisible(false);
-            ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-        } else if (comando.equals("EMPEZAR_EL_ROBO")) {
-            ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
-            ventanaPrincipal.getPanelJuego().setVisible(true);
+        switch (comando) {
+            case "VAMOS_A_ROBAR":
+                ventanaPrincipal.getPanelBienvenida().setVisible(false);
+                ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                break;
+            case "EMPEZAR_EL_ROBO":
+                ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
+                ventanaPrincipal.getPanelJuego().setVisible(true);
+                break;
         }
 
         seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
 
-        for (int i = 1; i <= seleccionCantidadDigitos; i++) {
+        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
             ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
             ventanaPrincipal.repaint();
         }
