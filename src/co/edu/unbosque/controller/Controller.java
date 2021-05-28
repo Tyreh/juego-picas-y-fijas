@@ -23,15 +23,19 @@ public class Controller implements ActionListener {
 
     public void asignarOyentes() {
         ventanaPrincipal.getPanelBienvenida().getBotonAceptar().addActionListener(this);
-
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
-        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addActionListener(this);
-        ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().addActionListener(this);
-        ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().addActionListener(this);
     }
 
     String auxString = "";
+
+    public void inicializarComponentes() {
+        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
+        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
+            ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
+            ventanaPrincipal.repaint();
+        }
+    }
 
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
@@ -48,13 +52,8 @@ public class Controller implements ActionListener {
         }
 
         seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
-        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
 
-        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
-            ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
-            ventanaPrincipal.repaint();
-        }
-
+        inicializarComponentes();
         seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
 
         auxString = (String) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem());
