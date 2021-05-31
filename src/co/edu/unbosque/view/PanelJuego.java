@@ -1,27 +1,29 @@
 package co.edu.unbosque.view;
 
+import java.awt.Font;
+
 import javax.swing.*;
 
-public class PanelJuego extends JPanel {
-    private JLabel enum1;
-    private JButton botonAceptar;
-    private JButton botonRendirse;
 
-    public PanelJuego() {
+
+public class PanelJuego extends JPanel 
+{
+
+    public PanelJuego() 
+    {
         setLayout(null);
         inicializarComponentes();
         setVisible(false);
     }
 
-    public void inicializarComponentes() {
-        botonAceptar = new JButton("Ingresar");
-        botonAceptar.setBounds(100,100,100,100);
-        botonAceptar.setActionCommand("INGRESAR");
-        add(botonAceptar);
+    public void inicializarComponentes() 
+    {
+   
+     
 
-        botonRendirse = new JButton("Rendirse");
-        botonRendirse.setBounds(100,200,100,100);
-        botonRendirse.setActionCommand("RENDIRSE");
-        add(botonRendirse);
     }
+
+	
+    
+    
 }

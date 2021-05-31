@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class Controller implements ActionListener {
+
     private VentanaPrincipal ventanaPrincipal;
     private Numero numero;
     private int seleccionCantidadIntentos;
@@ -47,6 +48,8 @@ public class Controller implements ActionListener {
                 break;
             case "EMPEZAR_EL_ROBO":
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
+                ventanaPrincipal.setSize(900,800);
+                ventanaPrincipal.setLocationRelativeTo(null);
                 ventanaPrincipal.getPanelJuego().setVisible(true);
                 break;
         }

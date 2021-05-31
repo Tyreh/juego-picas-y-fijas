@@ -4,13 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class VentanaPrincipal extends JFrame {
+	
     private PanelBienvenida panelBienvenida;
     private PanelOpciones panelOpcionesJuego;
     private PanelJuego panelJuego;
     private Mensajes mensajes;
+    private JMenu menu;
+    private JMenuBar menuBar;
 
     public VentanaPrincipal() {
+        
         setTitle("Robo al banco");
+        
         setSize(500,280);
         getContentPane().setBackground(Color.white);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,7 +26,9 @@ public class VentanaPrincipal extends JFrame {
         setVisible(true);
     }
 
-    public void inicializarComponentes() {
+    public void inicializarComponentes() 
+    {
+    	
         panelBienvenida = new PanelBienvenida();
         panelBienvenida.setBounds(15,15,465,220);
         getContentPane().add(panelBienvenida);
@@ -31,9 +38,8 @@ public class VentanaPrincipal extends JFrame {
         getContentPane().add(panelOpcionesJuego);
 
         panelJuego = new PanelJuego();
-        panelJuego.setBounds(15,15,465,220);
+        panelJuego.setBounds(15,15,850,730);
         getContentPane().add(panelJuego);
-
 
         mensajes = new Mensajes();
     }
@@ -42,7 +48,7 @@ public class VentanaPrincipal extends JFrame {
         return panelOpcionesJuego;
     }
 
-    public PanelJuego getPanelJuego() {
+   public PanelJuego getPanelJuego() {
         return panelJuego;
     }
 
@@ -53,4 +59,11 @@ public class VentanaPrincipal extends JFrame {
     public PanelBienvenida getPanelBienvenida() {
         return panelBienvenida;
     }
+
+	public JMenu getMenu() {
+		return menu;
+	}
+	
+	
+   
 }
