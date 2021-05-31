@@ -26,6 +26,7 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelBienvenida().getBotonAceptar().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
+        ventanaPrincipal.getPanelJuego().getBvolver().addActionListener(this);
     }
 
     String auxString = "";
@@ -48,9 +49,15 @@ public class Controller implements ActionListener {
                 break;
             case "EMPEZAR_EL_ROBO":
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
-                ventanaPrincipal.setSize(900,800);
+                ventanaPrincipal.setSize(900,550);
                 ventanaPrincipal.setLocationRelativeTo(null);
                 ventanaPrincipal.getPanelJuego().setVisible(true);
+                break;      
+            case "VOLVER":
+                ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                ventanaPrincipal.setSize(500,280);
+                ventanaPrincipal.setLocationRelativeTo(null);
+                ventanaPrincipal.getPanelJuego().setVisible(false);
                 break;
         }
 
