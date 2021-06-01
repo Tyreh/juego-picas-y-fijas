@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-
+//COMENTARIO
 public class PanelOpciones extends JPanel {
     private JLabel enum1;
     private JLabel enum2;
