@@ -69,7 +69,7 @@ public class PanelOpciones extends JPanel {
         repetirDigitos.setBounds(243, 80, 140, 20);
         add(repetirDigitos);
 
-        modoDeJuego = new JComboBox<>(new String[]{"Jugador vs Jugador", "Jugador vs Máquina"});
+        modoDeJuego = new JComboBox<>(new String[]{"Jugador vs Jugador", "Jugador vs Maquina"});
         modoDeJuego.setBounds(243, 140, 140, 20);
         add(modoDeJuego);
 
