@@ -7,6 +7,7 @@ public class VentanaPrincipal extends JFrame {
 	
     private PanelBienvenida panelBienvenida;
     private PanelOpciones panelOpcionesJuego;
+    private PanelEntrenamiento panelEntrena;
     private PanelJuego panelJuego;
     private Mensajes mensajes;
 
@@ -38,6 +39,10 @@ public class VentanaPrincipal extends JFrame {
         panelJuego = new PanelJuego();
         panelJuego.setBounds(15,15,850,490);
         getContentPane().add(panelJuego);
+        
+        panelEntrena = new PanelEntrenamiento();
+        panelEntrena.setBounds(15,15,850,490);
+        getContentPane().add(panelEntrena);
 
         mensajes = new Mensajes();
     }
@@ -57,4 +62,10 @@ public class VentanaPrincipal extends JFrame {
     public PanelBienvenida getPanelBienvenida() {
         return panelBienvenida;
     }
+
+	public PanelEntrenamiento getPanelEntrena() {
+		return panelEntrena;
+	}
+    
+    
 }

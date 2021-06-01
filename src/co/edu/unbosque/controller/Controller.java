@@ -27,49 +27,71 @@ public class Controller implements ActionListener {
 
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
+        ventanaPrincipal.getPanelOpcionesJuego().getBotonEntrenamiento().addActionListener(this);
 
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
+        
+        ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
     }
 
     String auxString = "";
 
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
-        switch (comando) {
+        switch (comando) 
+        {
             case "VAMOS_A_ROBAR":
                 ventanaPrincipal.getPanelBienvenida().setVisible(false);
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                 break;
+                
             case "EMPEZAR_EL_ROBO":
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                 ventanaPrincipal.setSize(900, 550);
                 ventanaPrincipal.setLocationRelativeTo(null);
                 ventanaPrincipal.getPanelJuego().setVisible(true);
 
-                auxString = (String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem();
-                switch (Objects.requireNonNull(auxString)) {
-                    case "Jugador vs Jugador":
-                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs jugador");
+            auxString = (String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem();
+            switch (Objects.requireNonNull(auxString)) 
+            {
+            case "Jugador vs Jugador":
+            			ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Jugador");
                         break;
-                    case "Jugador vs Maquina":
-                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs mÃ¡quina");
+             case "Jugador vs Maquina":
+                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Maquina");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
-                        ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MÃ�QUINA</html>");
+                        ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MAQUINA</html>");
                         break;
-                }
-                break;
+            }
+            break;
+            
             case "VOLVER":
                 ventanaPrincipal.getPanelJuego().setVisible(false);
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                 ventanaPrincipal.setSize(500, 280);
                 ventanaPrincipal.setLocationRelativeTo(null);
+                break; 
+                
+            case "PLANEAR_ROBO":
+                ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
+                ventanaPrincipal.setSize(900,550);
+                ventanaPrincipal.setLocationRelativeTo(null);
+                ventanaPrincipal.getPanelEntrena().setVisible(true);
                 break;
+                
+            case "VOLVER_ENT":
+                ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                ventanaPrincipal.setSize(500,280);
+                ventanaPrincipal.setLocationRelativeTo(null);
+                ventanaPrincipal.getPanelEntrena().setVisible(false);
+                break;
+                
             case "INGRESAR_J1":
                 try {
                     //numero.generarNumeroAleatorio(seleccionCantidadDigitos);
