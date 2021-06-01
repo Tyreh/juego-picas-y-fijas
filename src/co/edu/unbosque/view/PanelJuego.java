@@ -68,6 +68,9 @@ public class PanelJuego extends JPanel {
         mod1 = new DefaultTableModel(new String[][]{{}}, new String[] {"Jugador 1", "Picas", "Fijas"});
         mod1.addRow(new Integer[] {2});
         tabla1 = new JTable(mod1);
+        tabla1.setEnabled(false);
+        tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.getTableHeader().setResizingAllowed(false);
         scroll1 = new JScrollPane(tabla1);
         scroll1.setBounds(25, 100, 380, 350);
         add(scroll1);
@@ -93,6 +96,9 @@ public class PanelJuego extends JPanel {
 
         mod2 = new DefaultTableModel(datos2, new String[] {"Jugador 2", "Picas", "Fijas"});
         tabla2 = new JTable(mod2);
+        tabla2.setEnabled(false);
+        tabla2.getTableHeader().setReorderingAllowed(false);
+        tabla2.getTableHeader().setResizingAllowed(false);
         scroll2 = new JScrollPane(tabla2);
         scroll2.setBounds(445, 100, 380, 350);
         add(scroll2);
