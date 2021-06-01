@@ -12,10 +12,9 @@ public class Numero {
     	numeroAleatorio = n;
     }
     
-    public Random generarNumeroAleatorio () { //Metodo para genear el numero aleatorio
+    public int generarNumeroAleatorio (int cantidadDigitos) { //Metodo para generar el numero aleatorio
     	Random numeroAleatorio = new Random();
-    	int intAleatorio = numeroAleatorio.nextInt(1000000000); //Rango entre 0 y 999999999
-		return numeroAleatorio;
+		return numeroAleatorio.nextInt(cantidadDigitos);
 		
     }
 	
