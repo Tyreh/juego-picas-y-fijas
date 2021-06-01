@@ -1,17 +1,16 @@
 package co.edu.unbosque.controller;
 
-import co.edu.unbosque.model.Modelo;
+import co.edu.unbosque.model.Numero;
 import co.edu.unbosque.view.VentanaPrincipal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-import java.util.Random;
-
+///PRUEBA DE GIT
 public class Controller implements ActionListener {
 
     private VentanaPrincipal ventanaPrincipal;
-    private Modelo numero;
+    private Numero numero;
     private int seleccionCantidadIntentos;
     private int seleccionCantidadDigitos;
     private boolean seleccionRepeticionDigitos;
