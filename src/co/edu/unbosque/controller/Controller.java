@@ -62,7 +62,7 @@ public class Controller implements ActionListener {
             			ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Jugador");
                         break;
              case "Jugador vs Maquina":
-                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Maquina");
+            	 		ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Maquina");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
@@ -79,6 +79,7 @@ public class Controller implements ActionListener {
                 break; 
                 
             case "PLANEAR_ROBO":
+            	ventanaPrincipal.getPanelJuego().getBorde().setTitle("Modo Entrenamiento");
                 ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                 ventanaPrincipal.setSize(900,550);
                 ventanaPrincipal.setLocationRelativeTo(null);
