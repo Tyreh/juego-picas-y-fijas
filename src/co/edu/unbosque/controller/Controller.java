@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 ///PRUEBA DE GIT
 public class Controller implements ActionListener {
-
+// AAAAA
     private VentanaPrincipal ventanaPrincipal;
     private Numero numero;
     private int seleccionCantidadIntentos;
@@ -56,11 +56,11 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs jugador");
                         break;
                     case "Jugador vs Maquina":
-                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs máquina");
+                        ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs mÃ¡quina");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
-                        ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MÁQUINA</html>");
+                        ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MÃ�QUINA</html>");
                         break;
                 }
                 break;
