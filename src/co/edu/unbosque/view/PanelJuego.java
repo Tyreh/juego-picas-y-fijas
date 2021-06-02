@@ -60,9 +60,11 @@ public class PanelJuego extends JPanel {
         campoJ1.setBounds(25, 75, 200, 20);
         add(campoJ1);
 
-        botonIngresarJ1 = new JButton("Ingresar");
+        botonIngresarJ1 = new JButton();
         botonIngresarJ1.setFont(font);
-        botonIngresarJ1.setBounds(229, 75, 85, 19);
+        botonIngresarJ1.setBounds(229, 35, 85, 60);
+        ImageIcon teclado = new ImageIcon("src/Images/teclado1.jpg");
+        botonIngresarJ1.setIcon(new ImageIcon(teclado.getImage().getScaledInstance(botonIngresarJ1.getWidth(), botonIngresarJ1.getHeight(), Image.SCALE_SMOOTH)));
         botonIngresarJ1.setActionCommand("INGRESAR_J1");
         add(botonIngresarJ1);
 
