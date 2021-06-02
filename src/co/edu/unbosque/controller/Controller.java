@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-//COMMIT
 public class Controller implements ActionListener {
     private VentanaPrincipal ventanaPrincipal;
     private Numero numero;
@@ -19,6 +18,10 @@ public class Controller implements ActionListener {
         ventanaPrincipal = new VentanaPrincipal();
         ventanaPrincipal.getPanelBienvenida().setVisible(true);
         asignarOyentes();
+    }
+
+    public void borrar() {
+        //prueba para commit, este método se pude borrar
     }
 
     public void asignarOyentes() {
