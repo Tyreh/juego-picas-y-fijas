@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
