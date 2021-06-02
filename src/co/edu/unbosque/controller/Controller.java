@@ -41,6 +41,15 @@ public class Controller implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
+
+        seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
+
+        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
+        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
+            ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
+        }
+        seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
+
         try {
             switch (comando) {
                 case "VAMOS_A_ROBAR":
@@ -71,19 +80,25 @@ public class Controller implements ActionListener {
                     }
                     break;
                 case "INGRESAR_J1":
-                    textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
+                        textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
 
-                    if (!textoIngresado.equals("")) {
-                        contadorIntentosJ1++;
-                        ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
-                        ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
-                        ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
-                        ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
-                    }
+                        if (!textoIngresado.equals("")) {
+                            if (seleccionCantidadIntentos > 0) {
+                                contadorIntentosJ1++;
+                                seleccionCantidadIntentos--;
+                                ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                                ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
+                                ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
+                                ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
+                                System.out.println("Cantidad de intentos = " + seleccionCantidadIntentos);
+                            } else {
+                                ventanaPrincipal.getMensajes().mostrarInfo("No hay más intentos.");
+                            }
+                        }
 
-                    if (textoIngresado.equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarInfo("jugador 1 gana");
-                    }
+                        if (textoIngresado.equals(aleatorioGenerado)) {
+                            ventanaPrincipal.getMensajes().mostrarInfo("jugador 1 gana");
+                        }
                     break;
                 case "INGRESAR_J2":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ2().getText();
@@ -110,14 +125,6 @@ public class Controller implements ActionListener {
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
             ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un número entero de máximo " + seleccionCantidadDigitos + " dígitos.");
         }
-
-        seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
-
-        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
-        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
-            ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
-        }
-        seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
 
         auxString = (String) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem());
         if (auxString.equals("Si")) {
