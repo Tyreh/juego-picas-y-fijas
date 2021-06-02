@@ -28,6 +28,8 @@ public class PanelJuego extends JPanel {
     private JScrollPane scroll2;
 
     private TitledBorder borde;
+    private ImageIcon teclado;
+    private ImageIcon pista;
 
     public PanelJuego() {
         setLayout(null);
@@ -62,15 +64,17 @@ public class PanelJuego extends JPanel {
 
         botonIngresarJ1 = new JButton();
         botonIngresarJ1.setFont(font);
-        botonIngresarJ1.setBounds(229, 35, 85, 60);
-        ImageIcon teclado = new ImageIcon("src/Images/teclado1.jpg");
+        botonIngresarJ1.setBounds(229, 45, 85, 50);
+        teclado = new ImageIcon("src/Images/Cand.png");
         botonIngresarJ1.setIcon(new ImageIcon(teclado.getImage().getScaledInstance(botonIngresarJ1.getWidth(), botonIngresarJ1.getHeight(), Image.SCALE_SMOOTH)));
         botonIngresarJ1.setActionCommand("INGRESAR_J1");
         add(botonIngresarJ1);
 
-        botonPistaJ1 = new JButton("Pista");
+        botonPistaJ1 = new JButton();
         botonPistaJ1.setFont(font);
-        botonPistaJ1.setBounds(319, 75, 85, 19);
+        botonPistaJ1.setBounds(319, 45, 85, 50);
+        pista = new ImageIcon("src/Images/Pista.png");
+        botonPistaJ1.setIcon(new ImageIcon(pista.getImage().getScaledInstance(botonPistaJ1.getWidth(), botonPistaJ1.getHeight(), Image.SCALE_SMOOTH)));
         botonPistaJ1.setActionCommand("PISTA_J1");
         add(botonPistaJ1);
 
@@ -96,15 +100,19 @@ public class PanelJuego extends JPanel {
         campoJ2.setBounds(445, 75, 200, 20);
         add(campoJ2);
 
-        botonIngresarJ2 = new JButton("Ingresar");
+        botonIngresarJ2 = new JButton();
         botonIngresarJ2.setFont(font);
-        botonIngresarJ2.setBounds(649, 75, 85, 19);
+        botonIngresarJ2.setBounds(649, 45, 85, 50);
+        teclado = new ImageIcon("src/Images/Cand.png");
+        botonIngresarJ2.setIcon(new ImageIcon(teclado.getImage().getScaledInstance(botonIngresarJ2.getWidth(), botonIngresarJ2.getHeight(), Image.SCALE_SMOOTH)));
         botonIngresarJ2.setActionCommand("INGRESAR_J2");
         add(botonIngresarJ2);
 
-        botonPistaJ2 = new JButton("Pista");
+        botonPistaJ2 = new JButton();
         botonPistaJ2.setFont(font);
-        botonPistaJ2.setBounds(739, 75, 85, 19);
+        botonPistaJ2.setBounds(739, 45, 85, 50);
+        pista = new ImageIcon("src/Images/Pista.png");
+        botonPistaJ2.setIcon(new ImageIcon(pista.getImage().getScaledInstance(botonPistaJ2.getWidth(), botonPistaJ2.getHeight(), Image.SCALE_SMOOTH)));
         botonPistaJ2.setActionCommand("PISTA_J2");
         add(botonPistaJ2);
 
