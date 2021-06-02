@@ -23,7 +23,6 @@ public class PanelJuego extends JPanel {
     private JTable tabla1;
     private JScrollPane scroll1;
 
-    private String[][] datos2 = {{"1341", "4", "3"}};
     private DefaultTableModel mod2;
     private JTable tabla2;
     private JScrollPane scroll2;
@@ -64,9 +63,7 @@ public class PanelJuego extends JPanel {
         botonPistaJ1.setActionCommand("PISTA_J1");
         add(botonPistaJ1);
 
-        String[][] datos1 = {{"1341", "4", "3"}};
-        mod1 = new DefaultTableModel(new String[][]{{}}, new String[] {"Jugador 1", "Picas", "Fijas"});
-        mod1.addRow(new Integer[] {2});
+        mod1 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
         tabla1 = new JTable(mod1);
         tabla1.setEnabled(false);
         tabla1.getTableHeader().setReorderingAllowed(false);
@@ -94,7 +91,7 @@ public class PanelJuego extends JPanel {
         botonPistaJ2.setActionCommand("PISTA_J2");
         add(botonPistaJ2);
 
-        mod2 = new DefaultTableModel(datos2, new String[] {"Jugador 2", "Picas", "Fijas"});
+        mod2 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
         tabla2 = new JTable(mod2);
         tabla2.setEnabled(false);
         tabla2.getTableHeader().setReorderingAllowed(false);
