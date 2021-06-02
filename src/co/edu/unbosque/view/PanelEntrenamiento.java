@@ -1,7 +1,9 @@
 package co.edu.unbosque.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,6 +43,8 @@ public class PanelEntrenamiento extends JPanel
 	private JTable tabla2;
 	private JScrollPane scroll2;
 
+	private TitledBorder borde;
+	
     public PanelEntrenamiento() 
     {
         setLayout(null);
@@ -50,11 +54,12 @@ public class PanelEntrenamiento extends JPanel
 
     public void inicializarComponentes() 
     {
-    	Font font = new Font("Century Gothic", Font.BOLD, 12);
+    	borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
+        setBorder(borde);
+        Font font = new Font("Century Gothic", Font.BOLD, 12);
     	Font font1 = new Font("Century Gothic", Font.BOLD, 14);
-    	TitledBorder tb = new TitledBorder("Modo Entrenamiento");
-		tb.setTitleFont(font);
-		setBorder(tb);
+		borde.setTitleFont(font);
+		//setBorder(borde);
     	
     	ep1 = new JLabel("JUGADOR 1");
     	ep1.setFont(font1);
@@ -108,7 +113,7 @@ public class PanelEntrenamiento extends JPanel
 		add(bvolver);
 		bvolver.setActionCommand("VOLVER_ENT");
 		
-		mod1 = new DefaultTableModel(datos1,cabezera1);
+		mod1 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
 		tabla1 = new JTable(mod1);
 		tabla1.setEnabled(false);
 	    tabla1.setFont(font);
@@ -119,7 +124,8 @@ public class PanelEntrenamiento extends JPanel
 		scroll1.setBounds(25, 100, 380, 350);
 		add(scroll1);
 		
-		mod2 = new DefaultTableModel(datos2,cabezera2);
+		
+		mod2 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
 		tabla2 = new JTable(mod2);
 		tabla2.setEnabled(false);
 		tabla2.setFont(font);
@@ -130,6 +136,14 @@ public class PanelEntrenamiento extends JPanel
 		scroll2.setBounds(450, 100, 380, 350);
 		add(scroll2);
     }
+     	
+	public TitledBorder getBorde() {
+		return borde;
+	}
+
+	public void setBorde(TitledBorder borde) {
+		this.borde = borde;
+	}
 
 	public JLabel getEj1() {
 		return ej1;

@@ -21,7 +21,7 @@ public class Controller implements ActionListener {
     }
 
     public void borrar() {
-        //prueba para commit, este método se pude borrar
+        //prueba para commit, este mÃ©todo se pude borrar
     }
 
     public void asignarOyentes() {
@@ -30,13 +30,17 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEntrenamiento().addActionListener(this);
+        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addActionListener(this);
 
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
+        
+        ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
     }
+    
 
     String auxString = "";
     String aleatorioGenerado = "";
@@ -77,15 +81,16 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs jugador");
                             break;
                         case "Jugador vs Maquina":
-                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs máquina");
+                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs maquina");
                             ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
-                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MÁQUINA</html>");
+                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MAQUINA</html>");
                             break;
                     }
                     break;
                 case "PLANEAR_ROBO":
+                	ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Jugador vs maquina");
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                     ventanaPrincipal.setSize(900, 550);
                     ventanaPrincipal.setLocationRelativeTo(null);
@@ -104,7 +109,7 @@ public class Controller implements ActionListener {
                                 ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
                                 System.out.println("Cantidad de intentos = " + seleccionCantidadIntentos);
                             } else {
-                                ventanaPrincipal.getMensajes().mostrarInfo("No hay más intentos.");
+                                ventanaPrincipal.getMensajes().mostrarInfo("No hay mas intentos.");
                             }
                         }
 
@@ -133,9 +138,15 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setSize(500, 280);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     break;
+                case "VOLVER_ENT":
+                    ventanaPrincipal.getPanelEntrena().setVisible(false);
+                    ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                    ventanaPrincipal.setSize(500, 280);
+                    ventanaPrincipal.setLocationRelativeTo(null);
+                    break;
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
-            ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un número entero de máximo " + seleccionCantidadDigitos + " dígitos.");
+            ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un nÃºmero entero de mÃ¡ximo " + seleccionCantidadDigitos + " dÃ­gitos.");
         }
 
         auxString = (String) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem());
