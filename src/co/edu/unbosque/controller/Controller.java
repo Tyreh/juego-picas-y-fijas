@@ -25,6 +25,7 @@ public class Controller implements ActionListener {
 
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
+        ventanaPrincipal.getPanelOpcionesJuego().getBotonEntrenamiento().addActionListener(this);
 
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().addActionListener(this);
@@ -45,7 +46,7 @@ public class Controller implements ActionListener {
         seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
 
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
-        for (int i = 1; i <= seleccionCantidadDigitos * 5; i++) {
+        for (int i = 1; i <= (seleccionCantidadDigitos * 5); i++) {
             ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
         }
         seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
@@ -65,6 +66,7 @@ public class Controller implements ActionListener {
                     numero = new Numero(seleccionCantidadDigitos);
                     aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio(seleccionCantidadDigitos));
                     System.out.println("Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
+                    System.out.println("EMPEZAR_ROBO  = Cantidad de intentos seleccionada:" + seleccionCantidadIntentos);
 
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem())) {
                         case "Jugador vs Jugador":
@@ -78,6 +80,12 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MÁQUINA</html>");
                             break;
                     }
+                    break;
+                case "PLANEAR_ROBO":
+                    ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
+                    ventanaPrincipal.setSize(900, 550);
+                    ventanaPrincipal.setLocationRelativeTo(null);
+                    ventanaPrincipal.getPanelEntrena().setVisible(true);
                     break;
                 case "INGRESAR_J1":
                         textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();

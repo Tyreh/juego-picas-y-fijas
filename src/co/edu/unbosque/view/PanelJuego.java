@@ -41,9 +41,8 @@ public class PanelJuego extends JPanel {
         
         Font font = new Font("Century Gothic", Font.BOLD, 12);
     	Font font1 = new Font("Century Gothic", Font.BOLD, 14);
-    	TitledBorder tb = new TitledBorder("Jugador vs Jugador");
-		tb.setTitleFont(font);
-		setBorder(tb);
+		borde.setTitleFont(font);
+		setBorder(borde);
 
         botonVolver = new JButton("Volver");
         botonVolver.setBounds(385, 460, 80, 20);
