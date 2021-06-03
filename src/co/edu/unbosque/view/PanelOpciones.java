@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+
 //COMENTARIO
 public class PanelOpciones extends JPanel {
     private JLabel enum1;
@@ -28,7 +29,7 @@ public class PanelOpciones extends JPanel {
     public void inicializarComponentes() {
         Font fuente = new Font("", -1, 14);
         Font font = new Font("Century Gothic", Font.BOLD, 11);
-		Font font1 = new Font("Century Gothic", Font.BOLD, 13);
+        Font font1 = new Font("Century Gothic", Font.BOLD, 13);
 
         TitledBorder borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         //tituloBorde.setTitleFont(new Font("", Font.BOLD, 13));
@@ -64,9 +65,10 @@ public class PanelOpciones extends JPanel {
         cantidadDigitos = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         cantidadDigitos.setFont(font);
         cantidadDigitos.setBounds(243, 50, 140, 20);
+        cantidadDigitos.setActionCommand("REINICIAR_CANTIDAD_INTENTOS");
         add(cantidadDigitos);
 
-        cantidadIntentos = new JComboBox<>(new Integer[]{});
+        cantidadIntentos = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5});
         cantidadIntentos.setFont(font);
         cantidadIntentos.setBounds(243, 110, 140, 20);
         add(cantidadIntentos);
