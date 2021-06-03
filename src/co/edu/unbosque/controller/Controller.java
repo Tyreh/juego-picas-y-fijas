@@ -20,17 +20,12 @@ public class Controller implements ActionListener {
         asignarOyentes();
     }
 
-    public void borrar() {
-        //prueba para commit, este mÃ©todo se pude borrar
-    }
-
     public void asignarOyentes() {
         ventanaPrincipal.getPanelBienvenida().getBotonAceptar().addActionListener(this);
 
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEntrenamiento().addActionListener(this);
-        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addActionListener(this);
 
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().addActionListener(this);
@@ -73,8 +68,13 @@ public class Controller implements ActionListener {
 
                     numero = new Numero(seleccionCantidadDigitos);
                     aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio(seleccionCantidadDigitos));
-                    System.out.println("Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
-                    System.out.println("EMPEZAR_ROBO  = Cantidad de intentos seleccionada:" + seleccionCantidadIntentos);
+                    System.out.println("==========================================");
+                    System.out.println("Opciones de juego: ");
+                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
+                    System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
+                    System.out.println("    Repeticion de digitos: " + seleccionRepeticionDigitos);
+                    System.out.println("    Modo de juego: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()));
+                    System.out.println("==========================================");
 
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem())) {
                         case "Jugador vs Jugador":
