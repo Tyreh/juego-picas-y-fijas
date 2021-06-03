@@ -12,7 +12,6 @@ public class Controller implements ActionListener {
     private Numero numero;
     private int seleccionCantidadIntentos;
     private int seleccionCantidadDigitos;
-    private boolean seleccionRepeticionDigitos;
 
     public Controller() {
         ventanaPrincipal = new VentanaPrincipal();
@@ -32,10 +31,10 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonPistaJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
-        
+
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
     }
-    
+
 
     String auxString = "";
     String aleatorioGenerado = "";
@@ -66,15 +65,16 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelJuego().setVisible(true);
 
-                    numero = new Numero(seleccionCantidadDigitos);
-                    aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio(seleccionCantidadDigitos));
-                    System.out.println("==========================================");
-                    System.out.println("Opciones de juego: ");
-                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
-                    System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
-                    System.out.println("    Repeticion de digitos: " + seleccionRepeticionDigitos);
-                    System.out.println("    Modo de juego: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()));
-                    System.out.println("==========================================");
+                    switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem())) {
+                        case "Si":
+                            numero = new Numero(seleccionCantidadDigitos);
+                            aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio(seleccionCantidadDigitos));
+                            break;
+                        case "No":
+                            numero = new Numero(seleccionCantidadDigitos);
+                            aleatorioGenerado = numero.generarNumeroAleatorioSinRepeticion(seleccionCantidadDigitos);
+                            break;
+                    }
 
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem())) {
                         case "Jugador vs Jugador":
@@ -88,34 +88,42 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MAQUINA</html>");
                             break;
                     }
+
+                    System.out.println("==========================================");
+                    System.out.println("Opciones de juego: ");
+                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
+                    System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
+                    System.out.println("    Repeticion de digitos: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem()));
+                    System.out.println("    Modo de juego: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()));
+                    System.out.println("==========================================");
                     break;
                 case "PLANEAR_ROBO":
-                	ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Jugador vs maquina");
+                    ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Jugador vs maquina");
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                     ventanaPrincipal.setSize(900, 550);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelEntrena().setVisible(true);
                     break;
                 case "INGRESAR_J1":
-                        textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
+                    textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
 
-                        if (!textoIngresado.equals("")) {
-                            if (seleccionCantidadIntentos > 0) {
-                                contadorIntentosJ1++;
-                                seleccionCantidadIntentos--;
-                                ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
-                                ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
-                                ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
-                                ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
-                                System.out.println("Cantidad de intentos = " + seleccionCantidadIntentos);
-                            } else {
-                                ventanaPrincipal.getMensajes().mostrarInfo("No hay mas intentos.");
-                            }
+                    if (!textoIngresado.equals("")) {
+                        if (seleccionCantidadIntentos > 0) {
+                            contadorIntentosJ1++;
+                            seleccionCantidadIntentos--;
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                            ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
+                            ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
+                            ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
+                            System.out.println("Cantidad de intentos = " + seleccionCantidadIntentos);
+                        } else {
+                            ventanaPrincipal.getMensajes().mostrarInfo("No hay mas intentos.");
                         }
+                    }
 
-                        if (textoIngresado.equals(aleatorioGenerado)) {
-                            ventanaPrincipal.getMensajes().mostrarInfo("jugador 1 gana");
-                        }
+                    if (textoIngresado.equals(aleatorioGenerado)) {
+                        ventanaPrincipal.getMensajes().mostrarInfo("jugador 1 gana");
+                    }
                     break;
                 case "INGRESAR_J2":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ2().getText();
@@ -146,14 +154,7 @@ public class Controller implements ActionListener {
                     break;
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
-            ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un nÃºmero entero de mÃ¡ximo " + seleccionCantidadDigitos + " dÃ­gitos.");
-        }
-
-        auxString = (String) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem());
-        if (auxString.equals("Si")) {
-            seleccionRepeticionDigitos = true;
-        } else if (auxString.equals("No")) {
-            seleccionRepeticionDigitos = false;
+            ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un numero entero de maximo " + seleccionCantidadDigitos + " digitos.");
         }
     }
 }

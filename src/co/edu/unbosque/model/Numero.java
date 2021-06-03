@@ -52,13 +52,4 @@ public class Numero {
         }
         return contadorPicas;
     }
-
-    public int getNumeroAleatorio() {
-        return numeroAleatorio;
-    }
-
-    public void setNumeroAleatorio(int numeroAleatorio) {
-        this.numeroAleatorio = numeroAleatorio;
-    }
-
 }
