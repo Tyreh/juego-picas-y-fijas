@@ -10,13 +10,14 @@ public class VentanaPrincipal extends JFrame {
     private PanelEntrenamiento panelEntrena;
     private PanelJuego panelJuego;
     private Mensajes mensajes;
+    private FondoPrincipal fondo;
 
     public VentanaPrincipal() {
-        
+        FondoPrincipal fondo = new FondoPrincipal();
         setTitle("Robo al banco");
         
         setSize(500,280);
-        getContentPane().setBackground(Color.white);
+        setContentPane(fondo);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
         inicializarComponentes();
