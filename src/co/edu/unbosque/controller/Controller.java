@@ -102,7 +102,7 @@ public class Controller implements ActionListener {
                     System.out.println("==========================================");
                     break;
                 case "PLANEAR_ROBO":
-                    ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Jugador vs maquina");
+                    ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Modo Entrenamiento");
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                     ventanaPrincipal.setSize(900, 550);
                     ventanaPrincipal.setLocationRelativeTo(null);
