@@ -31,6 +31,10 @@ public class Numero {
         return numeroSinRepeticion.toString();
     }
 
+    public int generarDigitoAleatorio(int cantidadDigitos) {
+        Random numeroAleatorio = new Random();
+        return numeroAleatorio.nextInt(cantidadDigitos);
+    }
 
     public int contarFijas(String numeroIngresado, String numeroAleatorio) {
         int contadorFijas = 0;
