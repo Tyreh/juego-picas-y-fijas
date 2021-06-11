@@ -83,6 +83,12 @@ public class Controller implements ActionListener {
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem())) {
                         case "Jugador vs Jugador":
                             ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs  Jugador");
+                            
+                            ventanaPrincipal.getPanelJuego().getGif().setVisible(false);
+                            ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(true);
+                            ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(true);
+                            ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(true);
+                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>JUGADOR 2<br/>Ingrese un número:</html>");
                             break;
                         case "Jugador vs Maquina":
                             ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Maquina");
@@ -90,6 +96,8 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MAQUINA</html>");
+                           
+                            ventanaPrincipal.getPanelJuego().getGif().setVisible(true);
                             break;
                     }
 
@@ -127,17 +135,26 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarInfo("jugador 1 gana");
+                        ventanaPrincipal.getMensajes().mostrarGanador("Jugador 1 gana");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                       //Nuevo 
+                        ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
+                        ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
+                      
+                        
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarInfo("Maquina gana.");
+                        ventanaPrincipal.getMensajes().mostrarGanador("Maquina gana.");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        //Nuevo 
+                        ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
+                        ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
+                        
                     }
                     break;
                 case "INGRESAR_J2":
@@ -152,11 +169,14 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarInfo("jugador 2 gana");
+                        ventanaPrincipal.getMensajes().mostrarGanador("Jugador 2 gana");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        //Nuevo 
+                        ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
+                        ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
                     }
                     break;
                 case "VOLVER":
@@ -181,11 +201,18 @@ public class Controller implements ActionListener {
         }
 
         if (seleccionCantidadIntentos == contadorIntentosJ1 && seleccionCantidadIntentos == contadorIntentosJ2) {
-            ventanaPrincipal.getMensajes().mostrarInfo("Sin intentos.");
+            ventanaPrincipal.getMensajes().mostrarSinIntentos("Sin intentos.");
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
+            //Nuevo 
+            ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
+            ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
+            int contadorIntentosJ1 = 0;
+            int contadorIntentosJ2 = 0;
+            int seleccionCantidadIntentos;
+            
         }
     }
 

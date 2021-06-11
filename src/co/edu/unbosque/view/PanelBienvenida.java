@@ -15,6 +15,8 @@ public class PanelBienvenida extends JPanel {
     }
 
     public void inicializarComponentes() {
+    	setBackground(Color.cyan);
+    	
         TitledBorder tituloBorde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(tituloBorde);
 

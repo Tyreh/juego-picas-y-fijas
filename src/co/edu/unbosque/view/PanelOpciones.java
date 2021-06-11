@@ -27,12 +27,15 @@ public class PanelOpciones extends JPanel {
     }
 
     public void inicializarComponentes() {
+    	
+    	setBackground(Color.cyan);
+    	
         Font fuente = new Font("", -1, 14);
         Font font = new Font("Century Gothic", Font.BOLD, 11);
         Font font1 = new Font("Century Gothic", Font.BOLD, 13);
 
         TitledBorder borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
-        //tituloBorde.setTitleFont(new Font("", Font.BOLD, 13));
+
         setBorder(borde);
 
         enum1 = new JLabel("Seleccione sus opciones de juego");
@@ -42,7 +45,6 @@ public class PanelOpciones extends JPanel {
         add(enum1);
 
         enum2 = new JLabel("Cantidad de digitos: ");
-        //enum2.setFont(fuente);
         enum2.setFont(font1);
         enum2.setBounds(82, 50, 200, 20);
         add(enum2);

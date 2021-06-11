@@ -30,6 +30,10 @@ public class PanelJuego extends JPanel {
     private TitledBorder borde;
     private ImageIcon teclado;
     private ImageIcon pista;
+    
+    private JLabel gif;
+	private ImageIcon gif1;
+	
 
     public PanelJuego() {
         setLayout(null);
@@ -38,6 +42,9 @@ public class PanelJuego extends JPanel {
     }
 
     public void inicializarComponentes() {
+    	
+    	setBackground(Color.cyan);
+    	
         borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
         
@@ -50,6 +57,14 @@ public class PanelJuego extends JPanel {
         botonVolver.setBounds(385, 460, 80, 20);
         add(botonVolver);
         botonVolver.setActionCommand("VOLVER");
+        
+        //Gif
+        gif = new JLabel();
+        gif.setBounds(550, 15, 142, 80);
+        gif1 = new ImageIcon("src/Images/robot2.gif");
+        gif.setIcon(gif1);
+        gif1.setImageObserver(gif);
+        add(gif);
 
         // INTERFAZ JUGADOR 1
         enumJ1 = new JLabel("<html>JUGADOR 1<br/>Ingrese un número:</html>");
@@ -127,6 +142,24 @@ public class PanelJuego extends JPanel {
         scroll2.setBounds(445, 100, 380, 350);
         add(scroll2);
     }
+    
+    
+
+	public void setMod1(DefaultTableModel mod1) {
+		this.mod1 = mod1;
+	}
+
+	public void setMod2(DefaultTableModel mod2) {
+		this.mod2 = mod2;
+	}
+
+	public JLabel getGif() {
+		return gif;
+	}
+
+	public ImageIcon getGif1() {
+		return gif1;
+	}
 
     public JButton getBotonVolver() {
         return botonVolver;
