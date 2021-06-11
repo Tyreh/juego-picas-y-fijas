@@ -5,7 +5,11 @@ import co.edu.unbosque.view.VentanaPrincipal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Objects;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Controller implements ActionListener {
     private VentanaPrincipal ventanaPrincipal;
@@ -53,6 +57,24 @@ public class Controller implements ActionListener {
                 case "VAMOS_A_ROBAR":
                     ventanaPrincipal.getPanelBienvenida().setVisible(false);
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                    
+                    //Música
+                    try {
+                        
+                        // Se obtiene un Clip de sonido
+                        Clip sonido = AudioSystem.getClip();
+                        
+                        // Se carga con un fichero wav
+                        sonido.open(AudioSystem.getAudioInputStream(new File("src/Music/CancionJuego.wav")));
+                        
+                        // Comienza la reproducción
+                        sonido.start();
+                        
+                        sonido.loop(Clip.LOOP_CONTINUOUSLY); // reproduce el fichero de sonido una y otra vez sin parar.
+                    } catch (Exception e1) {
+                        System.out.println("" + e1);
+                    }
+                    
                     break;
                 case "REINICIAR_CANTIDAD_INTENTOS":
                     ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
