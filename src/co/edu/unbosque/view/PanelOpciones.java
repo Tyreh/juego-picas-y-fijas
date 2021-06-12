@@ -13,6 +13,11 @@ public class PanelOpciones extends JPanel {
     private JLabel enum5;
     private JButton botonEmpezarRobo;
     private JButton botonEntrenamiento;
+    private JButton quitarMusica;
+    private ImageIcon qmusica;
+    private JButton ponerMusica;
+    private ImageIcon pmusica;
+    
     JComboBox<Integer> cantidadDigitos;
     JComboBox<String> repetirDigitos;
     JComboBox<Integer> cantidadIntentos;
@@ -95,9 +100,33 @@ public class PanelOpciones extends JPanel {
         botonEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
         botonEntrenamiento.setActionCommand("PLANEAR_ROBO");
         add(botonEntrenamiento);
+        
+        quitarMusica = new JButton();
+        quitarMusica.setBounds(430, 5, 20, 20);
+        qmusica = new ImageIcon("src/Images/QuitarMu.png");
+        quitarMusica.setIcon(new ImageIcon(qmusica.getImage().getScaledInstance(quitarMusica.getWidth(), quitarMusica.getHeight(), Image.SCALE_SMOOTH)));
+        quitarMusica.setActionCommand("QUITARSON");
+        add(quitarMusica);
+        
+        ponerMusica = new JButton();
+        ponerMusica.setBounds(408, 5, 20, 20);
+        pmusica = new ImageIcon("src/Images/PonerMu.png");
+        ponerMusica.setIcon(new ImageIcon(pmusica.getImage().getScaledInstance(ponerMusica.getWidth(), ponerMusica.getHeight(), Image.SCALE_SMOOTH)));
+        ponerMusica.setActionCommand("PONERSON");
+        add(ponerMusica);
     }
+    
+    
 
-    public JButton getBotonEmpezarRobo() {
+    public JButton getPonerMusica() {
+		return ponerMusica;
+	}
+
+	public JButton getQuitarMusica() {
+		return quitarMusica;
+	}
+
+	public JButton getBotonEmpezarRobo() {
         return botonEmpezarRobo;
     }
 
