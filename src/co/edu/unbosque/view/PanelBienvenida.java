@@ -15,12 +15,12 @@ public class PanelBienvenida extends JPanel {
     }
 
     public void inicializarComponentes() {
-    	setBackground(Color.cyan);
-    	
+        setBackground(Color.cyan);
+
         TitledBorder tituloBorde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(tituloBorde);
 
-        JLabel enum1 = new JLabel("¿Lograras descifrar el codigo?", SwingConstants.CENTER);
+        JLabel enum1 = new JLabel("¿Lograrás descifrar el codigo?", SwingConstants.CENTER);
         enum1.setFont(new Font("", Font.BOLD, 14));
         enum1.setBounds(103, 10, 250, 20);
         add(enum1);
@@ -30,7 +30,7 @@ public class PanelBienvenida extends JPanel {
         enum2.setBounds(82, 50, 200, 100);
         add(enum2);
 
-        JLabel enum3 = new JLabel("<html>Helio Ramirez<br/><br/>Fundamentos de programacion<br/><br/>Oscar Moreno, Nelson Fandino<br/>Tomas Espitia, Nicolas Camacho</html>");
+        JLabel enum3 = new JLabel("<html>Helio Ramírez<br/><br/>Fundamentos de programacion<br/><br/>Oscar Moreno, Nelson Fandiño<br/>Tomas Espitia, Nicolas Camacho</html>");
         enum3.setFont(new Font("", -1, 14));
         enum3.setBounds(200, 10, 220, 200);
         add(enum3);

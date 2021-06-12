@@ -18,6 +18,7 @@ public class PanelJuego extends JPanel {
     private JButton botonPistaJ1;
     private JButton botonPistaJ2;
     private JButton botonVolver;
+    private JButton botonInformacion;
 
     private DefaultTableModel mod1;
     private JTable tabla1;
@@ -33,7 +34,6 @@ public class PanelJuego extends JPanel {
     
     private JLabel gif;
 	private ImageIcon gif1;
-	
 
     public PanelJuego() {
         setLayout(null);
@@ -53,10 +53,15 @@ public class PanelJuego extends JPanel {
 		borde.setTitleFont(font);
 		setBorder(borde);
 
-        botonVolver = new JButton("Volver");
-        botonVolver.setBounds(385, 460, 80, 20);
+		botonInformacion = new JButton("<html> Información de juego</html>");
+        botonInformacion.setBounds(345, 15, 160, 20);
+        botonInformacion.setActionCommand("INFORMACION_JUEGO");
+        add(botonInformacion);
+
+        botonVolver = new JButton("Rendirse");
+        botonVolver.setBounds(375, 460, 100, 20);
         add(botonVolver);
-        botonVolver.setActionCommand("VOLVER");
+        botonVolver.setActionCommand("RENDICION");
         
         //Gif
         gif = new JLabel();
@@ -142,23 +147,9 @@ public class PanelJuego extends JPanel {
         scroll2.setBounds(445, 100, 380, 350);
         add(scroll2);
     }
-    
-    
-
-	public void setMod1(DefaultTableModel mod1) {
-		this.mod1 = mod1;
-	}
-
-	public void setMod2(DefaultTableModel mod2) {
-		this.mod2 = mod2;
-	}
 
 	public JLabel getGif() {
 		return gif;
-	}
-
-	public ImageIcon getGif1() {
-		return gif1;
 	}
 
     public JButton getBotonVolver() {
@@ -203,5 +194,9 @@ public class PanelJuego extends JPanel {
 
     public JLabel getEnumJ2() {
         return enumJ2;
+    }
+
+    public JButton getBotonInformacion() {
+        return botonInformacion;
     }
 }

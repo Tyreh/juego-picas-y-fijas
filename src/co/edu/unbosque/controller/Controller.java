@@ -14,7 +14,15 @@ import javax.sound.sampled.Clip;
 public class Controller implements ActionListener {
     private VentanaPrincipal ventanaPrincipal;
     private Numero numero;
+
     private int seleccionCantidadDigitos;
+    private String aleatorioGenerado = "";
+    private String textoIngresado = "";
+    private int numeroAleatorioMaquina;
+    private int contadorIntentosJ1 = 1;
+    private int contadorIntentosJ2 = 1;
+    private int seleccionCantidadIntentos;
+    private int randomPrev = 0;
 
     public Controller() {
         ventanaPrincipal = new VentanaPrincipal();
@@ -34,17 +42,10 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonPistaJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
+        ventanaPrincipal.getPanelJuego().getBotonInformacion().addActionListener(this);
 
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
     }
-
-    String aleatorioGenerado = "";
-    String textoIngresado = "";
-    int numeroAleatorioMaquina;
-    int contadorIntentosJ1 = 1;
-    int contadorIntentosJ2 = 1;
-    int seleccionCantidadIntentos;
-    int randomPrev = 0;
 
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
@@ -57,24 +58,24 @@ public class Controller implements ActionListener {
                 case "VAMOS_A_ROBAR":
                     ventanaPrincipal.getPanelBienvenida().setVisible(false);
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                    
-                    //M�sica
+
+                    //M�sica
                     try {
-                        
+
                         // Se obtiene un Clip de sonido
                         Clip sonido = AudioSystem.getClip();
-                        
+
                         // Se carga con un fichero wav
                         sonido.open(AudioSystem.getAudioInputStream(new File("src/Music/CancionJuego.wav")));
-                        
-                        // Comienza la reproducci�n
+
+                        // Comienza la reproducci�n
                         sonido.start();
-                        
+
                         sonido.loop(Clip.LOOP_CONTINUOUSLY); // reproduce el fichero de sonido una y otra vez sin parar.
                     } catch (Exception e1) {
                         System.out.println("" + e1);
                     }
-                    
+
                     break;
                 case "REINICIAR_CANTIDAD_INTENTOS":
                     ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
@@ -84,13 +85,17 @@ public class Controller implements ActionListener {
                     break;
                 case "EMPEZAR_EL_ROBO":
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
-                    ventanaPrincipal.setSize(900, 550);
+                    ventanaPrincipal.setSize(885, 550);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelJuego().setVisible(true);
                     ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(true);
                     ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(false);
                     ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                     ventanaPrincipal.getPanelJuego().getCampoJ2().setText("");
+                    ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().setEnabled(true);
+                    ventanaPrincipal.getPanelJuego().getBotonPistaJ1().setEnabled(true);
+                    ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setEnabled(false);
+                    ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(false);
                     ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
                     ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
                     contadorIntentosJ1 = 1;
@@ -109,20 +114,19 @@ public class Controller implements ActionListener {
 
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem())) {
                         case "Jugador vs Jugador":
-                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs  Jugador");
-
+                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Jugador");
                             ventanaPrincipal.getPanelJuego().getGif().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(true);
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(true);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(true);
-                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>JUGADOR 2<br/>Ingrese un número:</html>");
+                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>Ladrón #2<br/>Ingrese un número:</html>");
                             break;
                         case "Jugador vs Maquina":
-                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Maquina");
+                            ventanaPrincipal.getPanelJuego().getBorde().setTitle("Jugador vs Máquina");
                             ventanaPrincipal.getPanelJuego().getCampoJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setVisible(false);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setVisible(false);
-                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>MAQUINA</html>");
+                            ventanaPrincipal.getPanelJuego().getEnumJ2().setText("<html>Ladrón #2</html>");
 
                             ventanaPrincipal.getPanelJuego().getGif().setVisible(true);
                             break;
@@ -150,7 +154,11 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
+                            ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().setEnabled(false);
+                            ventanaPrincipal.getPanelJuego().getBotonPistaJ1().setEnabled(false);
                             ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(true);
+                            ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setEnabled(true);
+                            ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(true);
                             contadorIntentosJ1++;
                         } else if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Maquina")) {
                             numeroAleatorioMaquina = numero.generarNumeroAleatorio(seleccionCantidadDigitos);
@@ -162,13 +170,13 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarGanador("Jugador 1 gana");
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
-                        ventanaPrincipal.getMensajes().mostrarGanador("Maquina gana.");
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
@@ -183,6 +191,10 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setText("");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(false);
                         ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(true);
+                        ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().setEnabled(true);
+                        ventanaPrincipal.getPanelJuego().getBotonPistaJ1().setEnabled(true);
+                        ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setEnabled(false);
+                        ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(false);
                         contadorIntentosJ2++;
                     }
 
@@ -208,11 +220,20 @@ public class Controller implements ActionListener {
                     break;
                 case "PISTA_J2":
                     break;
-                case "VOLVER":
-                    ventanaPrincipal.getPanelJuego().setVisible(false);
-                    ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                    ventanaPrincipal.setSize(500, 280);
-                    ventanaPrincipal.setLocationRelativeTo(null);
+                case "INFORMACION_JUEGO":
+                    ventanaPrincipal.getMensajes().mostrarInfo("Opciones de juego seleccionadas:\n" +
+                            "  Cantidad de dígitos: " + seleccionCantidadDigitos + "\n" +
+                            "  Cantidad de intentos: " + seleccionCantidadIntentos + "\n" +
+                            "  Repetición de dígitos: " + ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem() + "\n" +
+                            "  Modo de juego: " + ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem());
+                    break;
+                case "RENDICION":
+                    if (ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado)) {
+                        ventanaPrincipal.getPanelJuego().setVisible(false);
+                        ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                        ventanaPrincipal.setSize(500, 280);
+                        ventanaPrincipal.setLocationRelativeTo(null);
+                    }
                     break;
                 case "VOLVER_ENT":
                     ventanaPrincipal.getPanelEntrena().setVisible(false);
@@ -222,16 +243,15 @@ public class Controller implements ActionListener {
                     break;
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
-            ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un numero entero de maximo " + seleccionCantidadDigitos + " digitos.");
+            ventanaPrincipal.getMensajes().mostrarError("El código ingresado debe ser un numero entero de " + seleccionCantidadDigitos + " dígitos.");
         }
 
         if (seleccionCantidadIntentos == (contadorIntentosJ1 - 1) && seleccionCantidadIntentos == (contadorIntentosJ2 - 1)) {
-            ventanaPrincipal.getMensajes().mostrarSinIntentos("Sin intentos.\nEl número era " + aleatorioGenerado);
+            ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
         }
     }
-
 }

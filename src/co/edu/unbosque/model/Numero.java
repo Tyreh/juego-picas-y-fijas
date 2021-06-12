@@ -48,7 +48,6 @@ public class Numero {
 
     public int contarPicas(String numeroIngresado, String numeroAleatorio) {
         int contadorPicas = 0;
-
         for (int i = 0; i < numeroIngresado.length(); i++) {
             if (numeroIngresado.charAt(i) != numeroAleatorio.charAt(i) && numeroAleatorio.contains(String.valueOf(numeroIngresado.charAt(i)))) {
                 contadorPicas++;
