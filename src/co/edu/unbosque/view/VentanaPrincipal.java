@@ -11,6 +11,7 @@ public class VentanaPrincipal extends JFrame {
     private PanelJuego panelJuego;
     private Mensajes mensajes;
     private FondoPrincipal fondo;
+    private VentanaEntrenamiento2 ventrena2;
 
     public VentanaPrincipal() {
         FondoPrincipal fondo = new FondoPrincipal();
@@ -30,11 +31,11 @@ public class VentanaPrincipal extends JFrame {
     {
     	
         panelBienvenida = new PanelBienvenida();
-        panelBienvenida.setBounds(15,15,465,220);
+        panelBienvenida.setBounds(15,15,455,215);
         getContentPane().add(panelBienvenida);
 
         panelOpcionesJuego = new PanelOpciones();
-        panelOpcionesJuego.setBounds(15,15,465,220);
+        panelOpcionesJuego.setBounds(15,15,455,215);
         getContentPane().add(panelOpcionesJuego);
 
         panelJuego = new PanelJuego();
@@ -44,8 +45,16 @@ public class VentanaPrincipal extends JFrame {
         panelEntrena = new PanelEntrenamiento();
         panelEntrena.setBounds(15,15,850,490);
         getContentPane().add(panelEntrena);
+        
+        ventrena2 = new VentanaEntrenamiento2();
+        ventrena2.setBounds(15,15,465,220);
+        
 
         mensajes = new Mensajes();
+    }
+    
+    public VentanaEntrenamiento2 getVentrena2() {
+        return ventrena2;
     }
 
     public PanelOpciones getPanelOpcionesJuego() {

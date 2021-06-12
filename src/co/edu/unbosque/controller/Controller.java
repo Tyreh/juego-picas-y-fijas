@@ -1,18 +1,23 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.Numero;
+import co.edu.unbosque.view.VentanaEntrenamiento2;
 import co.edu.unbosque.view.VentanaPrincipal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Objects;
 
 public class Controller implements ActionListener {
     private VentanaPrincipal ventanaPrincipal;
+    private VentanaEntrenamiento2 ventrena2;
     private Numero numero;
     private int seleccionCantidadDigitos;
 
     public Controller() {
+    	ventrena2 = new VentanaEntrenamiento2();
         ventanaPrincipal = new VentanaPrincipal();
         ventanaPrincipal.getPanelBienvenida().setVisible(true);
         asignarOyentes();
@@ -32,6 +37,8 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
 
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
+        ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
+         
     }
 
     String aleatorioGenerado = "";
@@ -46,7 +53,7 @@ public class Controller implements ActionListener {
 
         seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
         seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
-
+        
         try {
             switch (comando) {
                 case "VAMOS_A_ROBAR":
@@ -107,6 +114,8 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setSize(900, 550);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelEntrena().setVisible(true);
+                    ventrena2.setVisible(true);
+                    
                     break;
                 case "INGRESAR_J1":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
@@ -175,6 +184,10 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setSize(500, 280);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     break;
+                    
+                case "TUTORIAL":
+                    ventrena2.setVisible(true);
+                    break;     
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
             ventanaPrincipal.getMensajes().mostrarInfo("El valor ingresado debe ser un numero entero de maximo " + seleccionCantidadDigitos + " digitos.");
@@ -187,6 +200,7 @@ public class Controller implements ActionListener {
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
         }
+        
     }
 
 }

@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class PanelBienvenida extends JPanel {
     private JButton botonAceptar;
-
     public PanelBienvenida() {
         setLayout(null);
         inicializarComponentes();
@@ -34,13 +33,13 @@ public class PanelBienvenida extends JPanel {
         add(enum3);
 
         botonAceptar = new JButton();
-        botonAceptar.setBounds(165, 175, 160, 40);
+        botonAceptar.setBounds(150, 170, 150, 40);
         botonAceptar.setActionCommand("VAMOS_A_ROBAR");
         ImageIcon ak = new ImageIcon("src/Images/Ak1.png");
         botonAceptar.setIcon(new ImageIcon(ak.getImage().getScaledInstance(botonAceptar.getWidth(), botonAceptar.getHeight(), Image.SCALE_SMOOTH)));
         add(botonAceptar);
     }
-
+   
     public JButton getBotonAceptar() {
         return botonAceptar;
     }

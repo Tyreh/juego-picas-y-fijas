@@ -25,6 +25,7 @@ public class PanelEntrenamiento extends JPanel
 	private JButton bayuda2;
 	
 	private JButton bvolver;
+	private JButton btutorial;
 	
 	private DefaultTableModel mod1;
 	private JTable tabla1;
@@ -133,9 +134,17 @@ public class PanelEntrenamiento extends JPanel
 		
 		bvolver = new JButton("Volver");
 		bvolver.setFont(font);
-		bvolver.setBounds(385, 460, 80, 20);
+		bvolver.setBounds(450, 460, 80, 20);
 		add(bvolver);
 		bvolver.setActionCommand("VOLVER_ENT");
+		
+		btutorial = new JButton("Tutorial");
+		btutorial.setFont(font);
+		btutorial.setBounds(324, 460, 80, 20);
+		add(btutorial);
+		btutorial.setActionCommand("TUTORIAL");
+		
+		
 			
     }
 
@@ -209,6 +218,14 @@ public class PanelEntrenamiento extends JPanel
 
 	public void setBvolver(JButton bvolver) {
 		this.bvolver = bvolver;
+	}
+
+	public JButton getBtutorial() {
+		return btutorial;
+	}
+
+	public void setBtutorial(JButton btutorial) {
+		this.btutorial = btutorial;
 	}
 
 	public DefaultTableModel getMod1() {
