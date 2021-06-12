@@ -30,6 +30,7 @@ public class Controller implements ActionListener {
     private int contadorIntentosJ2 = 1;
     private int seleccionCantidadIntentos;
     private int randomPrev = 0;
+    private  Clip sonido;
 
     public Controller() {
     	ventrena2 = new VentanaEntrenamiento2();
@@ -44,6 +45,8 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEmpezarRobo().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().addActionListener(this);
         ventanaPrincipal.getPanelOpcionesJuego().getBotonEntrenamiento().addActionListener(this);
+        ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().addActionListener(this);
+        ventanaPrincipal.getPanelOpcionesJuego().getPonerMusica().addActionListener(this);
 
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().addActionListener(this);
@@ -73,7 +76,7 @@ public class Controller implements ActionListener {
                     try {
 
                         // Se obtiene un Clip de sonido
-                        Clip sonido = AudioSystem.getClip();
+                         sonido = AudioSystem.getClip();
 
                         // Se carga con un fichero wav
                         sonido.open(AudioSystem.getAudioInputStream(new File("src/Music/CancionJuego.wav")));
@@ -87,12 +90,23 @@ public class Controller implements ActionListener {
                     }
 
                     break;
+               
                 case "REINICIAR_CANTIDAD_INTENTOS":
                     ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
-                    for (int i = 1; i <= (seleccionCantidadDigitos * 5); i++) {
-                        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
+                    for (int i = 1; i <= (seleccionCantidadDigitos * 5); i++) 
+                    {
+                        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);   
                     }
                     break;
+                    
+                case "QUITARSON":
+                    sonido.stop();
+                    break;
+                    
+                case "PONERSON":
+                    sonido.start();
+                    break;
+                    
                 case "EMPEZAR_EL_ROBO":
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                     ventanaPrincipal.setSize(885, 550);

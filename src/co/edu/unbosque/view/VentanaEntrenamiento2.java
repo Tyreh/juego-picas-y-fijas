@@ -28,7 +28,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 		inicializarComponentes();
 		setVisible(false);
 		setLocationRelativeTo(null);
-		setResizable(false);
+		setResizable(true);
 	}
 	public void inicializarComponentes() {
 		Font font = new Font("Century Gothic", Font.ROMAN_BASELINE, 12);
