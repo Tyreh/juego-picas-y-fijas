@@ -18,6 +18,7 @@ public class PanelJuego extends JPanel {
     private JButton botonPistaJ1;
     private JButton botonPistaJ2;
     private JButton botonVolver;
+    private JButton botonInformacion;
 
     private DefaultTableModel mod1;
     private JTable tabla1;
@@ -30,6 +31,9 @@ public class PanelJuego extends JPanel {
     private TitledBorder borde;
     private ImageIcon teclado;
     private ImageIcon pista;
+    
+    private JLabel gif;
+	private ImageIcon gif1;
 
     public PanelJuego() {
         setLayout(null);
@@ -38,6 +42,9 @@ public class PanelJuego extends JPanel {
     }
 
     public void inicializarComponentes() {
+    	
+    	setBackground(Color.cyan);
+    	
         borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
         
@@ -46,10 +53,23 @@ public class PanelJuego extends JPanel {
 		borde.setTitleFont(font);
 		setBorder(borde);
 
-        botonVolver = new JButton("Volver");
-        botonVolver.setBounds(385, 460, 80, 20);
+		botonInformacion = new JButton("<html> Información de juego</html>");
+        botonInformacion.setBounds(345, 15, 160, 20);
+        botonInformacion.setActionCommand("INFORMACION_JUEGO");
+        add(botonInformacion);
+
+        botonVolver = new JButton("Rendirse");
+        botonVolver.setBounds(375, 460, 100, 20);
         add(botonVolver);
-        botonVolver.setActionCommand("VOLVER");
+        botonVolver.setActionCommand("RENDICION");
+        
+        //Gif
+        gif = new JLabel();
+        gif.setBounds(550, 15, 142, 80);
+        gif1 = new ImageIcon("src/Images/robot2.gif");
+        gif.setIcon(gif1);
+        gif1.setImageObserver(gif);
+        add(gif);
 
         // INTERFAZ JUGADOR 1
         enumJ1 = new JLabel("<html>JUGADOR 1<br/>Ingrese un número:</html>");
@@ -128,6 +148,10 @@ public class PanelJuego extends JPanel {
         add(scroll2);
     }
 
+	public JLabel getGif() {
+		return gif;
+	}
+
     public JButton getBotonVolver() {
         return botonVolver;
     }
@@ -170,5 +194,9 @@ public class PanelJuego extends JPanel {
 
     public JLabel getEnumJ2() {
         return enumJ2;
+    }
+
+    public JButton getBotonInformacion() {
+        return botonInformacion;
     }
 }

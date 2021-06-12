@@ -49,6 +49,8 @@ public class PanelEntrenamiento extends JPanel
 
     public void inicializarComponentes() 
     {
+    	setBackground(Color.cyan);
+    	
     	borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
         Font font = new Font("Century Gothic", Font.BOLD, 12);

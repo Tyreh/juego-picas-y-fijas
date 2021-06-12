@@ -23,7 +23,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 		
 		setSize(500,280);
 		setLayout(null);
-		getContentPane().setBackground(new Color(211,255,249));
+		getContentPane().setBackground(Color.cyan);
 		inicializarComponentes();
 		setVisible(false);
 		setLocationRelativeTo(null);

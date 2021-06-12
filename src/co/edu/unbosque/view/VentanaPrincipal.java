@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class VentanaPrincipal extends JFrame {
-	
     private PanelBienvenida panelBienvenida;
     private PanelOpciones panelOpcionesJuego;
     private PanelEntrenamiento panelEntrena;
@@ -13,11 +12,11 @@ public class VentanaPrincipal extends JFrame {
     private FondoPrincipal fondo;
     private VentanaEntrenamiento2 ventrena2;
 
+
     public VentanaPrincipal() {
         FondoPrincipal fondo = new FondoPrincipal();
         setTitle("Robo al banco");
-        
-        setSize(500,280);
+        setSize(500, 280);
         setContentPane(fondo);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -27,23 +26,24 @@ public class VentanaPrincipal extends JFrame {
         setVisible(true);
     }
 
-    public void inicializarComponentes() 
-    {
-    	
+    public void inicializarComponentes() {
+
         panelBienvenida = new PanelBienvenida();
         panelBienvenida.setBounds(15,15,455,215);
+        panelBienvenida.setBounds(15, 15, 465, 220);
         getContentPane().add(panelBienvenida);
 
         panelOpcionesJuego = new PanelOpciones();
         panelOpcionesJuego.setBounds(15,15,455,215);
+        panelOpcionesJuego.setBounds(15, 15, 465, 220);
         getContentPane().add(panelOpcionesJuego);
 
         panelJuego = new PanelJuego();
-        panelJuego.setBounds(15,15,850,490);
+        panelJuego.setBounds(15, 15, 850, 490);
         getContentPane().add(panelJuego);
-        
+
         panelEntrena = new PanelEntrenamiento();
-        panelEntrena.setBounds(15,15,850,490);
+        panelEntrena.setBounds(15, 15, 850, 490);
         getContentPane().add(panelEntrena);
         
         ventrena2 = new VentanaEntrenamiento2();
@@ -61,7 +61,7 @@ public class VentanaPrincipal extends JFrame {
         return panelOpcionesJuego;
     }
 
-   public PanelJuego getPanelJuego() {
+    public PanelJuego getPanelJuego() {
         return panelJuego;
     }
 
@@ -73,9 +73,9 @@ public class VentanaPrincipal extends JFrame {
         return panelBienvenida;
     }
 
-	public PanelEntrenamiento getPanelEntrena() {
-		return panelEntrena;
-	}
-    
-    
+    public PanelEntrenamiento getPanelEntrena() {
+        return panelEntrena;
+    }
+
+
 }

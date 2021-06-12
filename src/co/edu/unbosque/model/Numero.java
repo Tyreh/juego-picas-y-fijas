@@ -31,6 +31,10 @@ public class Numero {
         return numeroSinRepeticion.toString();
     }
 
+    public int generarDigitoAleatorio(int cantidadDigitos) {
+        Random numeroAleatorio = new Random();
+        return numeroAleatorio.nextInt(cantidadDigitos);
+    }
 
     public int contarFijas(String numeroIngresado, String numeroAleatorio) {
         int contadorFijas = 0;
@@ -44,7 +48,6 @@ public class Numero {
 
     public int contarPicas(String numeroIngresado, String numeroAleatorio) {
         int contadorPicas = 0;
-
         for (int i = 0; i < numeroIngresado.length(); i++) {
             if (numeroIngresado.charAt(i) != numeroAleatorio.charAt(i) && numeroAleatorio.contains(String.valueOf(numeroIngresado.charAt(i)))) {
                 contadorPicas++;
