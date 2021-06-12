@@ -32,6 +32,7 @@ public class Controller implements ActionListener {
     private int randomPrev = 0;
     private  Clip sonido;
     private  Clip sonidowin;
+    private  Clip sonidoloser;
 
     public Controller() {
     	ventrena2 = new VentanaEntrenamiento2();
@@ -274,11 +275,25 @@ public class Controller implements ActionListener {
                             "  Modo de juego: " + ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem());
                     break;
                 case "RENDICION":
+                	
+                	sonido.stop();
+                	try {
+                        sonidoloser = AudioSystem.getClip();
+                        sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
+                        sonidoloser.start();
+                    } catch (Exception e1) {
+                        System.out.println("" + e1);
+                    }
+                	
                     if (ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado)) {
+                    		
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        
+                        sonidoloser.stop();
+                        sonido.start();
                     }
                     break;
                 case "VOLVER_ENT":
@@ -297,11 +312,24 @@ public class Controller implements ActionListener {
         }
 
         if (seleccionCantidadIntentos == (contadorIntentosJ1 - 1) && seleccionCantidadIntentos == (contadorIntentosJ2 - 1)) {
+        	
+        	sonido.stop();
+        	try {
+                sonidoloser = AudioSystem.getClip();
+                sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
+                sonidoloser.start();
+            } catch (Exception e1) {
+                System.out.println("" + e1);
+            }
+        	
             ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
+            
+            sonidoloser.stop();
+            sonido.start();
         }
         
     }
