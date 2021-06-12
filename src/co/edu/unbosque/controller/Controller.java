@@ -209,6 +209,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         
+                        sonidowin.stop();
                         sonido.start();
                         
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
@@ -221,6 +222,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         
+                        sonidowin.stop();
                         sonido.start();
                     }
                     break;
@@ -250,6 +252,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         
+                        sonidowin.stop();
                         sonido.start();
                     }
                     break;
@@ -312,24 +315,13 @@ public class Controller implements ActionListener {
         }
 
         if (seleccionCantidadIntentos == (contadorIntentosJ1 - 1) && seleccionCantidadIntentos == (contadorIntentosJ2 - 1)) {
-        	
-        	sonido.stop();
-        	try {
-                sonidoloser = AudioSystem.getClip();
-                sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
-                sonidoloser.start();
-            } catch (Exception e1) {
-                System.out.println("" + e1);
-            }
-        	
+
             ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
-            
-            sonidoloser.stop();
-            sonido.start();
+        
         }
         
     }
