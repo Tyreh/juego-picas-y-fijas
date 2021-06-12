@@ -31,6 +31,7 @@ public class Controller implements ActionListener {
     private int seleccionCantidadIntentos;
     private int randomPrev = 0;
     private  Clip sonido;
+    private  Clip sonidowin;
 
     public Controller() {
     	ventrena2 = new VentanaEntrenamiento2();
@@ -74,21 +75,16 @@ public class Controller implements ActionListener {
 
                     //M�sica
                     try {
-
                         // Se obtiene un Clip de sonido
                          sonido = AudioSystem.getClip();
-
                         // Se carga con un fichero wav
                         sonido.open(AudioSystem.getAudioInputStream(new File("src/Music/CancionJuego.wav")));
-
                         // Comienza la reproducci�n
                         sonido.start();
-
                         sonido.loop(Clip.LOOP_CONTINUOUSLY); // reproduce el fichero de sonido una y otra vez sin parar.
                     } catch (Exception e1) {
                         System.out.println("" + e1);
                     }
-
                     break;
                
                 case "REINICIAR_CANTIDAD_INTENTOS":
@@ -196,17 +192,35 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
+                    	
+                    	sonido.stop();
+                    	try {
+                            sonidowin = AudioSystem.getClip();
+                            sonidowin.open(AudioSystem.getAudioInputStream(new File("src/Music/Soundwin.wav")));
+                            sonidowin.start();
+                        } catch (Exception e1) {
+                            System.out.println("" + e1);
+                        }
+                    	
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        
+                        sonido.start();
+                        
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
+                    	sonido.stop();
+                    	sonidowin.start();
+                    	
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        
+                        sonido.start();
                     }
                     break;
                 case "INGRESAR_J2":
@@ -225,11 +239,17 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
+                    	
+                    	sonido.stop();
+                    	sonidowin.start();
+                    	
                         ventanaPrincipal.getMensajes().mostrarGanador("Jugador 2 gana");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
+                        
+                        sonido.start();
                     }
                     break;
                 case "PISTA_J1":
