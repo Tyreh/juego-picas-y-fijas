@@ -26,16 +26,16 @@ public class Controller implements ActionListener {
     private String aleatorioGenerado = "";
     private String textoIngresado = "";
     private int numeroAleatorioMaquina;
-    private int contadorIntentosJ1 = 1;
-    private int contadorIntentosJ2 = 1;
+    private int contadorIntentosJ1 = 0;
+    private int contadorIntentosJ2 = 0;
     private int seleccionCantidadIntentos;
     private int randomPrev = 0;
-    private  Clip sonido;
-    private  Clip sonidowin;
-    private  Clip sonidoloser;
+    private Clip sonido;
+    private Clip sonidowin;
+    private Clip sonidoloser;
 
     public Controller() {
-    	ventrena2 = new VentanaEntrenamiento2();
+        ventrena2 = new VentanaEntrenamiento2();
         ventanaPrincipal = new VentanaPrincipal();
         ventanaPrincipal.getPanelBienvenida().setVisible(true);
         asignarOyentes();
@@ -59,7 +59,7 @@ public class Controller implements ActionListener {
 
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
         ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
-         
+
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -67,7 +67,7 @@ public class Controller implements ActionListener {
 
         seleccionCantidadDigitos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadDigitos().getSelectedItem());
         seleccionCantidadIntentos = (int) Objects.requireNonNull(ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().getSelectedItem());
-        
+
         try {
             switch (comando) {
                 case "VAMOS_A_ROBAR":
@@ -77,9 +77,10 @@ public class Controller implements ActionListener {
                     //M�sica
                     try {
                         // Se obtiene un Clip de sonido
-                         sonido = AudioSystem.getClip();
+                        sonido = AudioSystem.getClip();
                         // Se carga con un fichero wav
                         sonido.open(AudioSystem.getAudioInputStream(new File("src/Music/CancionJuego.wav")));
+
                         // Comienza la reproducci�n
                         sonido.start();
                         sonido.loop(Clip.LOOP_CONTINUOUSLY); // reproduce el fichero de sonido una y otra vez sin parar.
@@ -87,23 +88,22 @@ public class Controller implements ActionListener {
                         System.out.println("" + e1);
                     }
                     break;
-               
+
                 case "REINICIAR_CANTIDAD_INTENTOS":
                     ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().removeAllItems();
-                    for (int i = 1; i <= (seleccionCantidadDigitos * 5); i++) 
-                    {
-                        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);   
+                    for (int i = 1; i <= (seleccionCantidadDigitos * 5); i++) {
+                        ventanaPrincipal.getPanelOpcionesJuego().getCantidadIntentos().addItem(i);
                     }
                     break;
-                    
+
                 case "QUITARSON":
                     sonido.stop();
                     break;
-                    
+
                 case "PONERSON":
                     sonido.start();
                     break;
-                    
+
                 case "EMPEZAR_EL_ROBO":
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
                     ventanaPrincipal.setSize(885, 550);
@@ -119,8 +119,8 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(false);
                     ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
                     ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
-                    contadorIntentosJ1 = 1;
-                    contadorIntentosJ2 = 1;
+                    contadorIntentosJ1 = 0;
+                    contadorIntentosJ2 = 0;
 
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem())) {
                         case "Si":
@@ -168,13 +168,13 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelEntrena().setVisible(true);
                     ventrena2.setVisible(true);
-                    
+
                     break;
                 case "INGRESAR_J1":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
                     if (!textoIngresado.equals("")) {
                         if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Jugador")) {
-                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{(contadorIntentosJ1 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().setEnabled(false);
@@ -183,45 +183,56 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setEnabled(true);
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(true);
                             contadorIntentosJ1++;
+                            System.out.println(contadorIntentosJ1);
                         } else if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Maquina")) {
                             numeroAleatorioMaquina = numero.generarNumeroAleatorio(seleccionCantidadDigitos);
-                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{contadorIntentosJ1, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
-                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{contadorIntentosJ1, numeroAleatorioMaquina, numero.contarPicas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado), numero.contarFijas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado)});
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{(contadorIntentosJ1 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{(contadorIntentosJ1 + 1), numeroAleatorioMaquina, numero.contarPicas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado), numero.contarFijas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado)});
                             contadorIntentosJ1++;
+                            contadorIntentosJ2++;
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                         }
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
-                    	
-                    	sonido.stop();
-                    	try {
+                        sonido.stop();
+                        try {
                             sonidowin = AudioSystem.getClip();
                             sonidowin.open(AudioSystem.getAudioInputStream(new File("src/Music/Soundwin.wav")));
                             sonidowin.start();
                         } catch (Exception e1) {
                             System.out.println("" + e1);
                         }
-                    	
+
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
-                        
+                        contadorIntentosJ1 = 0;
+                        contadorIntentosJ2 = 0;
+
                         sonidowin.stop();
                         sonido.start();
-                        
+
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
-                    	sonido.stop();
-                    	sonidowin.start();
-                    	
+                        sonido.stop();
+                        try {
+                            sonidowin = AudioSystem.getClip();
+                            sonidowin.open(AudioSystem.getAudioInputStream(new File("src/Music/Soundwin.wav")));
+                            sonidowin.start();
+                        } catch (Exception e1) {
+                            System.out.println("" + e1);
+                        }
+
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
-                        
+                        contadorIntentosJ1 = 0;
+                        contadorIntentosJ2 = 0;
+
                         sonidowin.stop();
                         sonido.start();
                     }
@@ -230,7 +241,7 @@ public class Controller implements ActionListener {
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ2().getText();
 
                     if (!textoIngresado.equals("")) {
-                        ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{contadorIntentosJ2, Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                        ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{(contadorIntentosJ2 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setText("");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(false);
                         ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(true);
@@ -242,16 +253,23 @@ public class Controller implements ActionListener {
                     }
 
                     if (textoIngresado.equals(aleatorioGenerado)) {
-                    	
-                    	sonido.stop();
-                    	sonidowin.start();
-                    	
+                        sonido.stop();
+                        try {
+                            sonidowin = AudioSystem.getClip();
+                            sonidowin.open(AudioSystem.getAudioInputStream(new File("src/Music/Soundwin.wav")));
+                            sonidowin.start();
+                        } catch (Exception e1) {
+                            System.out.println("" + e1);
+                        }
+
                         ventanaPrincipal.getMensajes().mostrarGanador("Jugador 2 gana");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
-                        
+                        contadorIntentosJ1 = 0;
+                        contadorIntentosJ2 = 0;
+
                         sonidowin.stop();
                         sonido.start();
                     }
@@ -278,23 +296,23 @@ public class Controller implements ActionListener {
                             "  Modo de juego: " + ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem());
                     break;
                 case "RENDICION":
-                	
-                	sonido.stop();
-                	try {
+                    sonido.stop();
+                    try {
                         sonidoloser = AudioSystem.getClip();
                         sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
                         sonidoloser.start();
                     } catch (Exception e1) {
                         System.out.println("" + e1);
                     }
-                	
+
                     if (ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado)) {
-                    		
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
                         ventanaPrincipal.setLocationRelativeTo(null);
-                        
+                        contadorIntentosJ1 = 0;
+                        contadorIntentosJ2 = 0;
+
                         sonidoloser.stop();
                         sonido.start();
                     }
@@ -305,24 +323,36 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setSize(500, 280);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     break;
-                    
+
                 case "TUTORIAL":
                     ventrena2.setVisible(true);
-                    break;     
+                    break;
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
             ventanaPrincipal.getMensajes().mostrarError("El código ingresado debe ser un numero entero de " + seleccionCantidadDigitos + " dígitos.");
         }
 
-        if (seleccionCantidadIntentos == (contadorIntentosJ1 - 1) && seleccionCantidadIntentos == (contadorIntentosJ2 - 1)) {
+        if (seleccionCantidadIntentos == contadorIntentosJ1 && seleccionCantidadIntentos == contadorIntentosJ2) {
+            sonido.stop();
+            try {
+                sonidoloser = AudioSystem.getClip();
+                sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
+                sonidoloser.start();
+            } catch (Exception e1) {
+                System.out.println("" + e1);
+            }
 
             ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 280);
             ventanaPrincipal.setLocationRelativeTo(null);
-        
+            contadorIntentosJ1 = 0;
+            contadorIntentosJ2 = 0;
+
+            sonidoloser.stop();
+            sonido.start();
         }
-        
+
     }
 }
