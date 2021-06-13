@@ -154,7 +154,7 @@ public class Controller implements ActionListener {
 
                     System.out.println("==========================================");
                     System.out.println("Opciones de juego: ");
-                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
+                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " /*+ aleatorioGenerado*/);
                     System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
                     System.out.println("    Repeticion de digitos: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem()));
                     System.out.println("    Modo de juego: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()));
@@ -182,11 +182,15 @@ public class Controller implements ActionListener {
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ2().setEnabled(true);
                             ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(true);
                             contadorIntentosJ1++;
-                            System.out.println(contadorIntentosJ1);
                         } else if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Maquina")) {
                             numeroAleatorioMaquina = numero.generarNumeroAleatorio();
-                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{String.valueOf((contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
-                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ1 + 1)), numeroAleatorioMaquina, String.valueOf(numero.contarPicas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado)), String.valueOf(numero.contarFijas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado))});
+                            System.out.println(seleccionCantidadDigitos);
+                            System.out.println(numeroAleatorioMaquina);
+                            System.out.println(textoIngresado);
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{(String.valueOf(contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
+                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), numeroAleatorioMaquina, String.valueOf(numero.contarPicas(numeroAleatorioMaquina, aleatorioGenerado)), String.valueOf(numero.contarFijas(numeroAleatorioMaquina, aleatorioGenerado))});
+                            //ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
+
                             contadorIntentosJ1++;
                             contadorIntentosJ2++;
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
@@ -203,7 +207,7 @@ public class Controller implements ActionListener {
                             System.out.println("" + e1);
                         }
 
-                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!");
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!\nEl código era " + aleatorioGenerado);
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
@@ -224,7 +228,7 @@ public class Controller implements ActionListener {
                             System.out.println("" + e1);
                         }
 
-                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!");
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!\nEl código era " + aleatorioGenerado);
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 280);
@@ -327,7 +331,7 @@ public class Controller implements ActionListener {
                     ventrena2.setVisible(true);
                     break;
             }
-        } catch (NumberFormatException | StringIndexOutOfBoundsException exception) {
+        } catch (NumberFormatException | StringIndexOutOfBoundsException | ArrayIndexOutOfBoundsException exception) {
             ventanaPrincipal.getMensajes().mostrarError("El código ingresado debe ser un numero entero de " + seleccionCantidadDigitos + " dígitos.");
         }
 
