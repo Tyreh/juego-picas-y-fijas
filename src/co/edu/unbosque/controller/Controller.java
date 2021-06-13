@@ -4,11 +4,7 @@ import co.edu.unbosque.model.Numero;
 import co.edu.unbosque.view.VentanaEntrenamiento2;
 import co.edu.unbosque.view.VentanaPrincipal;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 import java.io.File;
 
@@ -25,7 +21,7 @@ public class Controller implements ActionListener {
     private int seleccionCantidadDigitos;
     private String aleatorioGenerado = "";
     private String textoIngresado = "";
-    private int numeroAleatorioMaquina;
+    private String numeroAleatorioMaquina;
     private int contadorIntentosJ1 = 0;
     private int contadorIntentosJ2 = 0;
     private int seleccionCantidadIntentos;
@@ -57,6 +53,9 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonInformacion().addActionListener(this);
 
+
+        ventanaPrincipal.getPanelJuego().getEnumJ1().addMouseListener(new MouseAdapter() {
+        });
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
         ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
 
@@ -125,11 +124,11 @@ public class Controller implements ActionListener {
                     switch (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem())) {
                         case "Si":
                             numero = new Numero(seleccionCantidadDigitos);
-                            aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio(seleccionCantidadDigitos));
+                            aleatorioGenerado = String.valueOf(numero.generarNumeroAleatorio());
                             break;
                         case "No":
                             numero = new Numero(seleccionCantidadDigitos);
-                            aleatorioGenerado = numero.generarNumeroAleatorioSinRepeticion(seleccionCantidadDigitos);
+                            aleatorioGenerado = numero.generarNumeroAleatorioSinRepeticion();
                             break;
                     }
 
@@ -174,7 +173,7 @@ public class Controller implements ActionListener {
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
                     if (!textoIngresado.equals("")) {
                         if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Jugador")) {
-                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{(contadorIntentosJ1 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{(String.valueOf(contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(false);
                             ventanaPrincipal.getPanelJuego().getBotonIngresarJ1().setEnabled(false);
@@ -185,9 +184,9 @@ public class Controller implements ActionListener {
                             contadorIntentosJ1++;
                             System.out.println(contadorIntentosJ1);
                         } else if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Maquina")) {
-                            numeroAleatorioMaquina = numero.generarNumeroAleatorio(seleccionCantidadDigitos);
-                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new Integer[]{(contadorIntentosJ1 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
-                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{(contadorIntentosJ1 + 1), numeroAleatorioMaquina, numero.contarPicas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado), numero.contarFijas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado)});
+                            numeroAleatorioMaquina = numero.generarNumeroAleatorio();
+                            ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{String.valueOf((contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
+                            ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ1 + 1)), numeroAleatorioMaquina, String.valueOf(numero.contarPicas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado)), String.valueOf(numero.contarFijas(String.valueOf(numeroAleatorioMaquina), aleatorioGenerado))});
                             contadorIntentosJ1++;
                             contadorIntentosJ2++;
                             ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
@@ -241,7 +240,7 @@ public class Controller implements ActionListener {
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ2().getText();
 
                     if (!textoIngresado.equals("")) {
-                        ventanaPrincipal.getPanelJuego().getMod2().addRow(new Integer[]{(contadorIntentosJ2 + 1), Integer.valueOf(textoIngresado), numero.contarPicas(textoIngresado, aleatorioGenerado), numero.contarFijas(textoIngresado, aleatorioGenerado)});
+                        ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setText("");
                         ventanaPrincipal.getPanelJuego().getCampoJ2().setEnabled(false);
                         ventanaPrincipal.getPanelJuego().getCampoJ1().setEnabled(true);
@@ -275,7 +274,7 @@ public class Controller implements ActionListener {
                     }
                     break;
                 case "PISTA_J1":
-                    char[] aleatorioArray = aleatorioGenerado.toCharArray();
+/*                    char[] aleatorioArray = aleatorioGenerado.toCharArray();
                     int digitoAleatorio = numero.generarDigitoAleatorio(seleccionCantidadDigitos - 1);
 
                     while (randomPrev == digitoAleatorio) {
@@ -284,7 +283,7 @@ public class Controller implements ActionListener {
                     randomPrev = digitoAleatorio;
 
                     System.out.println(aleatorioArray[randomPrev]);
-                    ventanaPrincipal.getMensajes().mostrarInfo("" + aleatorioArray[randomPrev]);
+                    ventanaPrincipal.getMensajes().mostrarInfo("" + aleatorioArray[randomPrev]);*/
                     break;
                 case "PISTA_J2":
                     break;
@@ -353,6 +352,5 @@ public class Controller implements ActionListener {
             sonidoloser.stop();
             sonido.start();
         }
-
     }
 }

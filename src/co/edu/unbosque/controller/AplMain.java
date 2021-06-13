@@ -11,7 +11,7 @@ public class AplMain {
         Controller control = new Controller();
     }
 
-    public static void algo() {
+/*    public static void algo() {
         Scanner read = new Scanner(System.in);
         int num = read.nextInt();
 
@@ -20,5 +20,5 @@ public class AplMain {
         System.out.println("Fijas: " + numero.contarFijas(String.valueOf(num),"9323"));
         System.out.println("Picas: " + numero.contarPicas(String.valueOf(num),"9323"));
         algo();
-    }
+    }*/
 }

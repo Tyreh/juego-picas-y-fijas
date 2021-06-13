@@ -3,8 +3,12 @@ package co.edu.unbosque.view;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PanelJuego extends JPanel {
     private JLabel enumJ1;
@@ -42,9 +46,8 @@ public class PanelJuego extends JPanel {
     }
 
     public void inicializarComponentes() {
-    	
     	setBackground(Color.cyan);
-    	
+
         borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
         
@@ -148,7 +151,11 @@ public class PanelJuego extends JPanel {
         add(scroll2);
     }
 
-	public JLabel getGif() {
+    public JLabel getEnumJ1() {
+        return enumJ1;
+    }
+
+    public JLabel getGif() {
 		return gif;
 	}
 

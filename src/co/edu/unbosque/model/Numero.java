@@ -3,36 +3,38 @@ package co.edu.unbosque.model;
 import java.util.Random;
 
 public class Numero {
-    private int numeroAleatorio;
+    private final int cantidadDigitos;
+    private int digitoAleatorioGenerado;
+    private StringBuilder numeroAleatorioGenerado;
+    private Random numeroAleatorio;
 
     public Numero(int n) {
-        numeroAleatorio = n;
+        cantidadDigitos = n;
+        numeroAleatorioGenerado = new StringBuilder();
+        numeroAleatorio = new Random();
     }
 
-    public int generarNumeroAleatorio(int cantidadDigitos) { //Metodo para genear el numero aleatorio
-        Random numeroAleatorio = new Random();
-        int potencia = (int) Math.pow(10, cantidadDigitos - 1);
-        return potencia + numeroAleatorio.nextInt(9 * potencia);
+    public String generarNumeroAleatorio() {
+        for (int i = 0; i <= cantidadDigitos - 1; i++) {
+            digitoAleatorioGenerado = numeroAleatorio.nextInt(10);
+            numeroAleatorioGenerado.append(digitoAleatorioGenerado);
+        }
+        return numeroAleatorioGenerado.toString();
     }
 
-    public String generarNumeroAleatorioSinRepeticion(int cantidadDigitos) {
-        Random numeroAleatorio = new Random();
-        StringBuilder numeroSinRepeticion = new StringBuilder();
-        int digitoAleatorioGenerado;
-
+    public String generarNumeroAleatorioSinRepeticion() {
         for (int i = 0; i <= (cantidadDigitos - 1); i++) {
             digitoAleatorioGenerado = numeroAleatorio.nextInt(10);
-            if (!numeroSinRepeticion.toString().contains(String.valueOf(digitoAleatorioGenerado))) {
-                numeroSinRepeticion.append(digitoAleatorioGenerado);
+            if (!numeroAleatorioGenerado.toString().contains(String.valueOf(digitoAleatorioGenerado))) {
+                numeroAleatorioGenerado.append(digitoAleatorioGenerado);
             } else {
                 i--;
             }
         }
-        return numeroSinRepeticion.toString();
+        return numeroAleatorioGenerado.toString();
     }
 
-    public int generarDigitoAleatorio(int cantidadDigitos) {
-        Random numeroAleatorio = new Random();
+    public int generarDigitoAleatorio() {
         return numeroAleatorio.nextInt(cantidadDigitos);
     }
 
