@@ -25,7 +25,8 @@ public class Controller implements ActionListener {
     private int contadorIntentosJ1 = 0;
     private int contadorIntentosJ2 = 0;
     private int seleccionCantidadIntentos;
-    private int randomPrev = 0;
+    private int puntajeJ1 = 10;
+    private int puntajeJ2 = 10;
     private Clip sonido;
     private Clip sonidowin;
     private Clip sonidoloser;
@@ -53,12 +54,8 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonInformacion().addActionListener(this);
 
-
-        ventanaPrincipal.getPanelJuego().getEnumJ1().addMouseListener(new MouseAdapter() {
-        });
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
         ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
-
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -158,7 +155,7 @@ public class Controller implements ActionListener {
 
                     System.out.println("==========================================");
                     System.out.println("Opciones de juego: ");
-                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " /*+ aleatorioGenerado*/);
+                    System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
                     System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
                     System.out.println("    Repeticion de digitos: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem()));
                     System.out.println("    Modo de juego: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()));
@@ -187,15 +184,11 @@ public class Controller implements ActionListener {
                             contadorIntentosJ1++;
                         } else if (Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem()).equals("Jugador vs Maquina")) {
                             numeroAleatorioMaquina = numero.generarNumeroAleatorio();
-                            System.out.println(seleccionCantidadDigitos);
-                            System.out.println(numeroAleatorioMaquina);
-                            System.out.println(textoIngresado);
                             ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{(String.valueOf(contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
                             ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), numeroAleatorioMaquina, String.valueOf(numero.contarPicas(numeroAleatorioMaquina, aleatorioGenerado)), String.valueOf(numero.contarFijas(numeroAleatorioMaquina, aleatorioGenerado))});
-
+                            ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                             contadorIntentosJ1++;
                             contadorIntentosJ2++;
-                            ventanaPrincipal.getPanelJuego().getCampoJ1().setText("");
                         }
                     }
 
@@ -209,13 +202,15 @@ public class Controller implements ActionListener {
                             System.out.println("" + e1);
                         }
 
-                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!\nEl código era " + aleatorioGenerado);
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código " + aleatorioGenerado + "!\n\n+10 puntos para el ladrón #1\n-10 puntos para el ladrón #2");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
+                        puntajeJ1 += 10;
+                        puntajeJ2 -= 10;
 
                         sonidowin.stop();
                         sonido.start();
@@ -230,13 +225,14 @@ public class Controller implements ActionListener {
                             System.out.println("" + e1);
                         }
 
-                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!\nEl código era " + aleatorioGenerado);
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡La máquina ha descifrado el código " + aleatorioGenerado + "!\n\n-10 puntos para el ladrón #1");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
+                        puntajeJ1 -= 10;
 
                         sonidowin.stop();
                         sonido.start();
@@ -267,31 +263,39 @@ public class Controller implements ActionListener {
                             System.out.println("" + e1);
                         }
 
-                        ventanaPrincipal.getMensajes().mostrarGanador("Jugador 2 gana");
+                        ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código " + aleatorioGenerado + "!\n\n+10 puntos para el ladrón #2\n-10 puntos para el ladrón #1");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
                         ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
+                        puntajeJ2 += 10;
+                        puntajeJ1 -= 10;
 
                         sonidowin.stop();
                         sonido.start();
                     }
                     break;
                 case "PISTA_J1":
-/*                    char[] aleatorioArray = aleatorioGenerado.toCharArray();
-                    int digitoAleatorio = numero.generarDigitoAleatorio(seleccionCantidadDigitos - 1);
-
-                    while (randomPrev == digitoAleatorio) {
-                        digitoAleatorio = numero.generarDigitoAleatorio(seleccionCantidadDigitos - 1);
+                    if (seleccionCantidadDigitos < 3) {
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡Debes seleccionar más de 3 dígitos para poder utilizar pistas!");
+                    } else if (puntajeJ1 >= 10) {
+                        puntajeJ1 -= 10;
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡-10 puntos! Ahora tienes " + puntajeJ1 + " puntos.\n\nEl código contiene el dígito " + Character.getNumericValue(numero.pista(aleatorioGenerado)));
+                    } else {
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡Necesitas al menos 10 puntos para canjear una pista!");
                     }
-                    randomPrev = digitoAleatorio;
-
-                    System.out.println(aleatorioArray[randomPrev]);
-                    ventanaPrincipal.getMensajes().mostrarInfo("" + aleatorioArray[randomPrev]);*/
                     break;
                 case "PISTA_J2":
+                    if (seleccionCantidadDigitos < 3) {
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡Debes seleccionar más de 3 dígitos para poder utilizar pistas!");
+                    } else if (puntajeJ2 >= 10) {
+                        puntajeJ2 -= 10;
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡-10 puntos! Ahora tienes " + puntajeJ2 + " puntos.\n\nEl código contiene el dígito " + Character.getNumericValue(numero.pista(aleatorioGenerado)));
+                    } else {
+                        ventanaPrincipal.getMensajes().mostrarInfo("¡Necesitas al menos 10 puntos para canjear una pista!");
+                    }
                     break;
                 case "INFORMACION_JUEGO":
                     ventanaPrincipal.getMensajes().mostrarInfo("Opciones de juego seleccionadas:\n" +
@@ -300,35 +304,6 @@ public class Controller implements ActionListener {
                             "  Repetición de dígitos: " + ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem() + "\n" +
                             "  Modo de juego: " + ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem());
                     break;
-                case "RENDICION":
-                    sonido.stop();
-                    try {
-                        sonidoloser = AudioSystem.getClip();
-                        sonidoloser.open(AudioSystem.getAudioInputStream(new File("src/Music/TitanicFlauta.wav")));
-                        sonidoloser.start();
-                    } catch (Exception e1) {
-                        System.out.println("" + e1);
-                    }
-
-                    if (ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado)) {
-                        ventanaPrincipal.getPanelJuego().setVisible(false);
-                        ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                        ventanaPrincipal.setSize(500, 310);
-                        ventanaPrincipal.setLocationRelativeTo(null);
-                        contadorIntentosJ1 = 0;
-                        contadorIntentosJ2 = 0;
-
-                        sonidoloser.stop();
-                        sonido.start();
-                    }
-                    break;
-                case "VOLVER_ENT":
-                    ventanaPrincipal.getPanelEntrena().setVisible(false);
-                    ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                    ventanaPrincipal.setSize(500, 310);
-                    ventanaPrincipal.setLocationRelativeTo(null);
-                    break;
-
                 case "TUTORIAL":
                     ventrena2.setVisible(true);
                     break;
@@ -337,7 +312,7 @@ public class Controller implements ActionListener {
             ventanaPrincipal.getMensajes().mostrarError("El código ingresado debe ser un numero entero de " + seleccionCantidadDigitos + " dígitos.");
         }
 
-        if (seleccionCantidadIntentos == contadorIntentosJ1 && seleccionCantidadIntentos == contadorIntentosJ2) {
+        if (seleccionCantidadIntentos == contadorIntentosJ1 && seleccionCantidadIntentos == contadorIntentosJ2 || comando.equals("RENDICION") || comando.equals("VOLVER_ENT")) {
             sonido.stop();
             try {
                 sonidoloser = AudioSystem.getClip();
@@ -347,16 +322,21 @@ public class Controller implements ActionListener {
                 System.out.println("" + e1);
             }
 
-            ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
+            ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código " + aleatorioGenerado + "!\n\n-10 puntos para ambos ladrones.");
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
             ventanaPrincipal.setSize(500, 310);
             ventanaPrincipal.setLocationRelativeTo(null);
             contadorIntentosJ1 = 0;
             contadorIntentosJ2 = 0;
+            puntajeJ1 -= 10;
+            puntajeJ2 -= 10;
 
             sonidoloser.stop();
             sonido.start();
         }
+
+        ventanaPrincipal.getPanelOpcionesJuego().getPuntajeJ1().setText(String.valueOf(puntajeJ1));
+        ventanaPrincipal.getPanelOpcionesJuego().getPuntajeJ2().setText(String.valueOf(puntajeJ2));
     }
 }

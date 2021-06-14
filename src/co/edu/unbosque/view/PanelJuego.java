@@ -3,12 +3,8 @@ package co.edu.unbosque.view;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
-import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class PanelJuego extends JPanel {
     private JLabel enumJ1;
@@ -75,7 +71,7 @@ public class PanelJuego extends JPanel {
         add(gif);
 
         // INTERFAZ JUGADOR 1
-        enumJ1 = new JLabel("<html>JUGADOR 1<br/>Ingrese un número:</html>");
+        enumJ1 = new JLabel("<html>Ladrón #1<br/>Ingrese un número:</html>");
         enumJ1.setBounds(25, 35, 200, 40);
         enumJ1.setFont(font1);
         add(enumJ1);

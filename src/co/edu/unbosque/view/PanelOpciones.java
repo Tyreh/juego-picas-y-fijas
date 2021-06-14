@@ -47,13 +47,13 @@ public class PanelOpciones extends JPanel {
         enum1.setBounds(115, 40, 250, 20);
         add(enum1);
 
-        enum2 = new JLabel("Puntaje ladrón #1: ");
+        enum2 = new JLabel("Puntos ladrón #1: ");
         enum2.setFont(new Font("", Font.BOLD, 14));
         enum2.setFont(fuente2);
         enum2.setBounds(5, 5, 250, 20);
         add(enum2);
 
-        enum3 = new JLabel("Puntaje ladrón #2: ");
+        enum3 = new JLabel("Puntos ladrón #2: ");
         enum3.setFont(new Font("", Font.BOLD, 14));
         enum3.setFont(fuente2);
         enum3.setBounds(255, 5, 250, 20);
@@ -102,7 +102,7 @@ public class PanelOpciones extends JPanel {
         cantidadIntentos.setBounds(243, 140, 140, 20);
         add(cantidadIntentos);
 
-        repetirDigitos = new JComboBox<>(new String[]{"Si", "No"});
+        repetirDigitos = new JComboBox<>(new String[]{"No", "Si"});
         repetirDigitos.setFont(fuente1);
         repetirDigitos.setBounds(243, 110, 140, 20);
         add(repetirDigitos);
@@ -181,5 +181,11 @@ public class PanelOpciones extends JPanel {
         return modoDeJuego;
     }
 
+    public JTextField getPuntajeJ1() {
+        return puntajeJ1;
+    }
 
+    public JTextField getPuntajeJ2() {
+        return puntajeJ2;
+    }
 }

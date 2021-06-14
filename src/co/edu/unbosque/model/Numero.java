@@ -10,14 +10,9 @@ public class Numero {
     private int digitoAleatorioGenerado;
     private StringBuilder numeroAleatorioGenerado;
     private Random numeroAleatorio;
-    //private String[] test;
-    //private String[] test2;
 
     public Numero(int n) {
         cantidadDigitos = n;
-
-        //test = new String[cantidadDigitos];
-        //test2 = new String[cantidadDigitos];
     }
 
     public String generarNumeroAleatorio() {
@@ -49,6 +44,19 @@ public class Numero {
     public int generarDigitoAleatorio() {
         numeroAleatorio = new Random();
         return numeroAleatorio.nextInt(cantidadDigitos);
+    }
+
+    public int pista(String aleatorioGenerado) {
+        int randomPrev = 0;
+        char[] aleatorioArray = aleatorioGenerado.toCharArray();
+        int digitoAleatorio = generarDigitoAleatorio();
+
+        while (randomPrev == digitoAleatorio) {
+            digitoAleatorio = generarDigitoAleatorio();
+        }
+        randomPrev = digitoAleatorio;
+
+        return aleatorioArray[randomPrev];
     }
 
     public int contarFijas(String numeroIngresado, String numeroAleatorio) {
@@ -114,30 +122,4 @@ public class Numero {
         return contadorPicas;
 
     }*/
-
-    public int count(List<Character> generated, String current) {
-        int count = 0;
-        int j = 0;
-        for (int i = 0; i < current.length(); i++) {
-            if (generated.get(j) == current.charAt(i)) {
-                generated.remove(j);
-                j--;
-                count++;
-            }
-            j++;
-        }
-        return count;
-    }
-
-    public int count2(List<Character> generated, String current) {
-        int count = 0;
-        for (int i = 0; i < current.length(); i++) {
-            char c = current.charAt(i);
-            if (generated.contains(c)) {
-                generated.remove((Character) c);
-                count++;
-            }
-        }
-        return count;
-    }
 }
