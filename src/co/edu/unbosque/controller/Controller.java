@@ -97,10 +97,14 @@ public class Controller implements ActionListener {
 
                 case "QUITARSON":
                     sonido.stop();
+                    ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(false);
+                    ventanaPrincipal.getPanelOpcionesJuego().getPonerMusica().setVisible(true);
                     break;
 
                 case "PONERSON":
                     sonido.start();
+                    ventanaPrincipal.getPanelOpcionesJuego().getPonerMusica().setVisible(false);
+                    ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(true);
                     break;
 
                 case "EMPEZAR_EL_ROBO":
@@ -167,7 +171,6 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.setLocationRelativeTo(null);
                     ventanaPrincipal.getPanelEntrena().setVisible(true);
                     ventrena2.setVisible(true);
-
                     break;
                 case "INGRESAR_J1":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
@@ -189,7 +192,6 @@ public class Controller implements ActionListener {
                             System.out.println(textoIngresado);
                             ventanaPrincipal.getPanelJuego().getMod1().addRow(new String[]{(String.valueOf(contadorIntentosJ1 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
                             ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), numeroAleatorioMaquina, String.valueOf(numero.contarPicas(numeroAleatorioMaquina, aleatorioGenerado)), String.valueOf(numero.contarFijas(numeroAleatorioMaquina, aleatorioGenerado))});
-                            //ventanaPrincipal.getPanelJuego().getMod2().addRow(new String[]{String.valueOf((contadorIntentosJ2 + 1)), textoIngresado, String.valueOf(numero.contarPicas(textoIngresado, aleatorioGenerado)), String.valueOf(numero.contarFijas(textoIngresado, aleatorioGenerado))});
 
                             contadorIntentosJ1++;
                             contadorIntentosJ2++;
@@ -210,7 +212,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #1 ha descifrado el código!\nEl código era " + aleatorioGenerado);
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                        ventanaPrincipal.setSize(500, 280);
+                        ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
@@ -231,7 +233,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.getMensajes().mostrarGanador("¡El ladrón #2 ha descifrado el código!\nEl código era " + aleatorioGenerado);
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                        ventanaPrincipal.setSize(500, 280);
+                        ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
@@ -268,7 +270,7 @@ public class Controller implements ActionListener {
                         ventanaPrincipal.getMensajes().mostrarGanador("Jugador 2 gana");
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                        ventanaPrincipal.setSize(500, 280);
+                        ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
@@ -311,7 +313,7 @@ public class Controller implements ActionListener {
                     if (ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado)) {
                         ventanaPrincipal.getPanelJuego().setVisible(false);
                         ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                        ventanaPrincipal.setSize(500, 280);
+                        ventanaPrincipal.setSize(500, 310);
                         ventanaPrincipal.setLocationRelativeTo(null);
                         contadorIntentosJ1 = 0;
                         contadorIntentosJ2 = 0;
@@ -323,7 +325,7 @@ public class Controller implements ActionListener {
                 case "VOLVER_ENT":
                     ventanaPrincipal.getPanelEntrena().setVisible(false);
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-                    ventanaPrincipal.setSize(500, 280);
+                    ventanaPrincipal.setSize(500, 310);
                     ventanaPrincipal.setLocationRelativeTo(null);
                     break;
 
@@ -348,7 +350,7 @@ public class Controller implements ActionListener {
             ventanaPrincipal.getMensajes().mostrarSinIntentos("¡Ningún ladrón logró descifrar el código!\nEl código era " + aleatorioGenerado);
             ventanaPrincipal.getPanelJuego().setVisible(false);
             ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
-            ventanaPrincipal.setSize(500, 280);
+            ventanaPrincipal.setSize(500, 310);
             ventanaPrincipal.setLocationRelativeTo(null);
             contadorIntentosJ1 = 0;
             contadorIntentosJ2 = 0;

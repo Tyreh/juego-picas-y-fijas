@@ -88,6 +88,9 @@ public class PanelJuego extends JPanel {
         botonIngresarJ1 = new JButton();
         botonIngresarJ1.setFont(font);
         botonIngresarJ1.setBounds(229, 45, 85, 50);
+        botonIngresarJ1.setOpaque(false);
+        botonIngresarJ1.setContentAreaFilled(false);
+        botonIngresarJ1.setBorderPainted(false);
         teclado = new ImageIcon("src/Images/Cand.png");
         botonIngresarJ1.setIcon(new ImageIcon(teclado.getImage().getScaledInstance(botonIngresarJ1.getWidth(), botonIngresarJ1.getHeight(), Image.SCALE_SMOOTH)));
         botonIngresarJ1.setActionCommand("INGRESAR_J1");
@@ -96,6 +99,9 @@ public class PanelJuego extends JPanel {
         botonPistaJ1 = new JButton();
         botonPistaJ1.setFont(font);
         botonPistaJ1.setBounds(319, 45, 85, 50);
+        botonPistaJ1.setOpaque(false);
+        botonPistaJ1.setContentAreaFilled(false);
+        botonPistaJ1.setBorderPainted(false);
         pista = new ImageIcon("src/Images/Pista.png");
         botonPistaJ1.setIcon(new ImageIcon(pista.getImage().getScaledInstance(botonPistaJ1.getWidth(), botonPistaJ1.getHeight(), Image.SCALE_SMOOTH)));
         botonPistaJ1.setActionCommand("PISTA_J1");
@@ -126,6 +132,9 @@ public class PanelJuego extends JPanel {
         botonIngresarJ2 = new JButton();
         botonIngresarJ2.setFont(font);
         botonIngresarJ2.setBounds(649, 45, 85, 50);
+        botonIngresarJ2.setOpaque(false);
+        botonIngresarJ2.setContentAreaFilled(false);
+        botonIngresarJ2.setBorderPainted(false);
         teclado = new ImageIcon("src/Images/Cand.png");
         botonIngresarJ2.setIcon(new ImageIcon(teclado.getImage().getScaledInstance(botonIngresarJ2.getWidth(), botonIngresarJ2.getHeight(), Image.SCALE_SMOOTH)));
         botonIngresarJ2.setActionCommand("INGRESAR_J2");
@@ -134,6 +143,9 @@ public class PanelJuego extends JPanel {
         botonPistaJ2 = new JButton();
         botonPistaJ2.setFont(font);
         botonPistaJ2.setBounds(739, 45, 85, 50);
+        botonPistaJ2.setOpaque(false);
+        botonPistaJ2.setContentAreaFilled(false);
+        botonPistaJ2.setBorderPainted(false);
         pista = new ImageIcon("src/Images/Pista.png");
         botonPistaJ2.setIcon(new ImageIcon(pista.getImage().getScaledInstance(botonPistaJ2.getWidth(), botonPistaJ2.getHeight(), Image.SCALE_SMOOTH)));
         botonPistaJ2.setActionCommand("PISTA_J2");

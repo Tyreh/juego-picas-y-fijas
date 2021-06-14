@@ -16,7 +16,7 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
         FondoPrincipal fondo = new FondoPrincipal();
         setTitle("Robo al banco");
-        setSize(500, 280);
+        setSize(500, 310);
         setContentPane(fondo);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -29,13 +29,13 @@ public class VentanaPrincipal extends JFrame {
     public void inicializarComponentes() {
 
         panelBienvenida = new PanelBienvenida();
-        panelBienvenida.setBounds(15,15,455,215);
-        panelBienvenida.setBounds(15, 15, 465, 220);
+        //panelBienvenida.setBounds(15,15,455,215);
+        panelBienvenida.setBounds(15, 15, 465, 250);
         getContentPane().add(panelBienvenida);
 
         panelOpcionesJuego = new PanelOpciones();
-        panelOpcionesJuego.setBounds(15,15,455,215);
-        panelOpcionesJuego.setBounds(15, 15, 465, 220);
+        //panelOpcionesJuego.setBounds(15,15,455,215);
+        panelOpcionesJuego.setBounds(15, 15, 465, 250);
         getContentPane().add(panelOpcionesJuego);
 
         panelJuego = new PanelJuego();

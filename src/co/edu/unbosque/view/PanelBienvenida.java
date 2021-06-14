@@ -35,7 +35,10 @@ public class PanelBienvenida extends JPanel {
         add(enum3);
 
         botonAceptar = new JButton();
-        botonAceptar.setBounds(150, 170, 150, 40);
+        botonAceptar.setBounds(150, 190, 150, 40);
+        botonAceptar.setOpaque(false);
+        botonAceptar.setContentAreaFilled(false);
+        botonAceptar.setBorderPainted(false);
         botonAceptar.setActionCommand("VAMOS_A_ROBAR");
         ImageIcon ak = new ImageIcon("src/Images/Ak1.png");
         botonAceptar.setIcon(new ImageIcon(ak.getImage().getScaledInstance(botonAceptar.getWidth(), botonAceptar.getHeight(), Image.SCALE_SMOOTH)));
