@@ -64,7 +64,7 @@ public class VentanaEntrenamiento2 extends JDialog {
      */
     private Font font2;
     /**
-     * Método que permite iniciar cada atributo del panel para ser añadido a este, además de permitir estilizarlo
+     * Método Constructor
      */
     public VentanaEntrenamiento2() {
         setTitle("Entrenamiento");
@@ -77,7 +77,9 @@ public class VentanaEntrenamiento2 extends JDialog {
         setLocationRelativeTo(null);
         setResizable(true);
     }
-
+    /**
+     * Método que permite iniciar cada atributo del panel para ser añadido a este, además de permitir estilizarlo
+     */
     public void inicializarComponentes() {
         font = new Font("Century Gothic", Font.ROMAN_BASELINE, 12);
         font2 = new Font("Century Gothic", Font.BOLD, 14);
