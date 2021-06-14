@@ -322,7 +322,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 *  Método que permite llamar la imagen pista
-	 * @return
+	 * @return pista
 	 */
 	public ImageIcon getPista() {
 		return pista;
@@ -338,7 +338,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite llamar el gif gif1
-	 * @return
+	 * @return gif1
 	 */
 	public ImageIcon getGif1() {
 		return gif1;

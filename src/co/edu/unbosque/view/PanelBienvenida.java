@@ -99,7 +99,7 @@ public class PanelBienvenida extends JPanel {
 	
 	 /**
      * Método que permite realizar cambios en el borde del panel
-     * @param retorna tituloborde
+     * @param tituloBorde
      */
 	public void setTituloBorde(TitledBorder tituloBorde) {
 		this.tituloBorde = tituloBorde;
@@ -107,7 +107,7 @@ public class PanelBienvenida extends JPanel {
 	
 	 /**
      * Método que permite llamar la etiqueta enum1
-     * @return retorna enum1
+     * @return enum1
      */
 	public JLabel getEnum1() {
 		return enum1;
@@ -155,14 +155,14 @@ public class PanelBienvenida extends JPanel {
 	
 	/**
 	 * Método que permite llamar la imagen ak
-	 * @return imagen ak
+	 * @return ak
 	 */
 	public ImageIcon getAk() {
 		return ak;
 	}
 	/**
 	 * Método que permite realizar cambios en la imagen ak
-	 * @return imagen ak
+	 * @param ak
 	 */
 	public void setAk(ImageIcon ak) {
 		this.ak = ak;
