@@ -2,17 +2,41 @@ package co.edu.unbosque.model;
 
 import java.util.Arrays;
 import java.util.Random;
-
+/**
+ * Clase encargada de las funciones
+ *@author Oscar Dario Moreno
+ *@author Nicolas Camacho Lesmes
+ *@author Tomas Espitia Galindo
+ *@author Nelson Fandi�o Diaz
+ */
 public class Numero {
+	/**
+	 * Objeto de tipo final int, contiene la cantidad de dígitos.
+	 */
     private final int cantidadDigitos;
+    /**
+     * Objeto de tipo int, contiene el dígito aleatorio generado.
+     */
     private int digitoAleatorioGenerado;
+    /**
+     * Objeto de tipo StringBuilder, contiene el número aleatorio generado.
+     */
     private StringBuilder numeroAleatorioGenerado;
+    /**
+     * Objeto de tipo random, contiene el número aleatorio.
+     */
     private Random numeroAleatorio;
-
+    /**
+     * Método constructor de la clase.
+     * @param n Numero entero a evaluar.
+     */
     public Numero(int n) {
         cantidadDigitos = n;
     }
-
+    /**
+     * Método encargado de generar un número aleatorio.
+     * @return el número generado.
+     */
     public String generarNumeroAleatorio() {
         numeroAleatorioGenerado = new StringBuilder();
         numeroAleatorio = new Random();
@@ -23,7 +47,10 @@ public class Numero {
         }
         return numeroAleatorioGenerado.toString();
     }
-
+    /**
+     * Método encargado de generar un número aleatorio sin repetición
+     * @return el número generado.
+     */
     public String generarNumeroAleatorioSinRepeticion() {
         numeroAleatorioGenerado = new StringBuilder();
         numeroAleatorio = new Random();
@@ -38,12 +65,19 @@ public class Numero {
         }
         return numeroAleatorioGenerado.toString();
     }
-
+    /**
+     * Método encargado de generar un dígito aleatorio
+     * @return el dígito generado.
+     */
     public int generarDigitoAleatorio() {
         numeroAleatorio = new Random();
         return numeroAleatorio.nextInt(cantidadDigitos);
     }
-
+    /**
+     * Método encargado de generar las pistas.
+     * @param aleatorioGenerado a evaluar.
+     * @return las pistas generadas.
+     */
     public int pista(String aleatorioGenerado) {
         int randomPrev = 0;
         char[] aleatorioArray = aleatorioGenerado.toCharArray();
@@ -56,7 +90,12 @@ public class Numero {
 
         return aleatorioArray[randomPrev];
     }
-
+    /**
+     * Método encargado de contar las fijas en base la número ingresado y el número aleatorio.
+     * @param numeroIngresado a evaluar.
+     * @param numeroAleatorio a evaluar.
+     * @return el contador de fijas.
+     */
     public int contarFijas(String numeroIngresado, String numeroAleatorio) {
         int contadorFijas = 0;
         for (int i = 0; i < numeroIngresado.length(); i++) {
@@ -66,7 +105,12 @@ public class Numero {
         }
         return contadorFijas;
     }
-
+    /**
+     * Método encargado de contar las picas en base la número ingresado y el número aleatorio.
+     * @param numeroIngresado a evaluar.
+     * @param numeroAleatorio a evaluar.
+     * @return el contador de picas.
+     */
     public int contarPicas(String numeroIngresado, String numeroAleatorio) {
         int contadorPicas = 0;
         String[] test = new String[cantidadDigitos];

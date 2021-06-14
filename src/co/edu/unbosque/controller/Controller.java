@@ -12,32 +12,87 @@ import java.util.Objects;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
+/**
+ * Clase encargada de la ejecución.
+ *@author Oscar Dario Moreno
+ *@author Nicolas Camacho Lesmes
+ *@author Tomas Espitia Galindo
+ *@author Nelson Fandi�o Diaz
+ */
 public class Controller implements ActionListener {
+	/**
+	 * Objeto de tipo VentanaPrincipal, permite llamar a la ventana principal y sus paneles.
+	 */
     private VentanaPrincipal ventanaPrincipal;
+    /**
+	 * Objeto de tipo VentanaEntrenamiento2, permite llamar a la ventana de entrenamiento
+	 */
     private VentanaEntrenamiento2 ventrena2;
+    /**
+	 * Objeto de tipo Numero, permite llamar los métodos.
+	 */
     private Numero numero;
-
+    
+    /**
+	 * Objeto de tipo int, encargado de almacenar la cantidad de dígitos seleccionados.
+	 */
     private int seleccionCantidadDigitos;
+    /**
+	 * Objeto de tipo String, encargado de almacenar el número aleatorio.
+	 */
     private String aleatorioGenerado = "";
+    /**
+	 * Objeto de tipo String, encargado de almacenar el texto ingresado.
+	 */
     private String textoIngresado = "";
+    /**
+	 * Objeto de tipo String, encargado de almacenar el número aleatorio generado por la maquina.
+	 */
     private String numeroAleatorioMaquina;
+    /**
+	 * Objeto de tipo int, encargado de almacenar los intentos del jugador 2.
+	 */
     private int contadorIntentosJ1 = 0;
+    /**
+	 * Objeto de tipo int, encargado de almacenar los intentos del jugador 2.
+	 */
     private int contadorIntentosJ2 = 0;
+    /**
+	 * Objeto de tipo int, encargado de almacenar la cantidad de intentos seleccionados.
+	 */
     private int seleccionCantidadIntentos;
+    /**
+	 * Objeto de tipo int, encargado de almacenar el puntaje del jugador 1.
+	 */
     private int puntajeJ1 = 30;
+    /**
+	 * Objeto de tipo int, encargado de almacenar el puntaje del jugador 2.
+	 */
     private int puntajeJ2 = 30;
+    /**
+	 * Objeto de tipo Clip, encargado de reproducir un sonido en el menu principal y dentro del juego.
+	 */
     private Clip sonido;
+    /**
+	 * Objeto de tipo Clip, encargado de reproducir un sonido al ganar.
+	 */
     private Clip sonidowin;
+    /**
+	 * Objeto de tipo Clip, encargado de reproducir un sonido al perder.
+	 */
     private Clip sonidoloser;
-
+    /**
+	 * Método constructor de la clase
+	 */
     public Controller() {
         ventrena2 = new VentanaEntrenamiento2();
         ventanaPrincipal = new VentanaPrincipal();
         ventanaPrincipal.getPanelBienvenida().setVisible(true);
         asignarOyentes();
     }
-
+    /**
+     * Método encargado de asignar las funciones a cada boton.
+     */
     public void asignarOyentes() {
         ventanaPrincipal.getPanelBienvenida().getBotonAceptar().addActionListener(this);
 
@@ -57,7 +112,9 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
         ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
     }
-
+    /**
+     * Método encargado de llamar la función para cada bóton.
+     */
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
 
