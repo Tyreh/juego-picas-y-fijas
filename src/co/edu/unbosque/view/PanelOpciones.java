@@ -247,7 +247,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite obtener la etiqueta enum2
-	 * @return
+	 * @return enum2
 	 */
 	public JLabel getEnum2() {
 		return enum2;
