@@ -16,7 +16,7 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
         fondo = new FondoPrincipal();
         setTitle("Robo al banco");
-        setSize(500, 280);
+        setSize(500, 310);
         setContentPane(fondo);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
