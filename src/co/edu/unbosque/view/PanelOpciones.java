@@ -239,7 +239,7 @@ public class PanelOpciones extends JPanel {
     
     /**
      * Método que permite realizar cambios en la etiqueta enum1
-     * @param enum1
+     * @param enum1, simple setter
      */
 	public void setEnum1(JLabel enum1) {
 		this.enum1 = enum1;
@@ -255,7 +255,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum2
-	 * @param enum2
+	 * @param enum2, simple setter
 	 */
 	public void setEnum2(JLabel enum2) {
 		this.enum2 = enum2;
@@ -271,7 +271,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum3
-	 * @param enum3
+	 * @param enum3, simple setter
 	 */
 	public void setEnum3(JLabel enum3) {
 		this.enum3 = enum3;
@@ -287,7 +287,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la etiqueta enum4
-	 * @param enum4
+	 * @param enum4, simple setter
 	 */
 	public void setEnum4(JLabel enum4) {
 		this.enum4 = enum4;
@@ -303,7 +303,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la etiqueta enum5
-	 * @param enum5
+	 * @param enum5, simple setter
 	 */
 	public void setEnum5(JLabel enum5) {
 		this.enum5 = enum5;
@@ -319,7 +319,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum6
-	 * @param enum6
+	 * @param enum6, simple setter
 	 */
 	public void setEnum6(JLabel enum6) {
 		this.enum6 = enum6;
@@ -335,7 +335,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum7
-	 * @param enum7
+	 * @param enum7, simple setter
 	 */
 	public void setEnum7(JLabel enum7) {
 		this.enum7 = enum7;
@@ -351,7 +351,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la imagen qmusica
-	 * @param qmusica
+	 * @param qmusica, simple setter
 	 */
 	public void setQmusica(ImageIcon qmusica) {
 		this.qmusica = qmusica;
@@ -367,7 +367,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la imagen pmusica
-	 * @param pmusica
+	 * @param pmusica, simple setter
 	 */
 	public void setPmusica(ImageIcon pmusica) {
 		this.pmusica = pmusica;
@@ -383,7 +383,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la fuente de letra fuente1
-	 * @param fuente1
+	 * @param fuente1, simple setter
 	 */
 	public void setFuente1(Font fuente1) {
 		this.fuente1 = fuente1;
@@ -399,7 +399,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la fuente de letra fuente2
-	 * @param fuente2
+	 * @param fuente2, simple setter
 	 */
 	public void setFuente2(Font fuente2) {
 		this.fuente2 = fuente2;
@@ -415,7 +415,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el borde del panel
-	 * @param borde
+	 * @param borde, simple setter
 	 */
 	public void setBorde(TitledBorder borde) {
 		this.borde = borde;
@@ -423,7 +423,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el campo texto puntajeJ1
-	 * @param puntajeJ1
+	 * @param puntajeJ1, simple setter
 	 */
 	public void setPuntajeJ1(JTextField puntajeJ1) {
 		this.puntajeJ1 = puntajeJ1;
@@ -431,7 +431,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el campo texto puntajeJ2
-	 * @param puntajeJ2
+	 * @param puntajeJ2, simple setters
 	 */
 	public void setPuntajeJ2(JTextField puntajeJ2) {
 		this.puntajeJ2 = puntajeJ2;
@@ -439,7 +439,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonEmpezarRobo
-	 * @param botonEmpezarRobo
+	 * @param botonEmpezarRobo, simple setter
 	 */
 	public void setBotonEmpezarRobo(JButton botonEmpezarRobo) {
 		this.botonEmpezarRobo = botonEmpezarRobo;
@@ -447,7 +447,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonEntrenamiento
-	 * @param botonEntrenamiento
+	 * @param botonEntrenamiento, simple setter
 	 */
 	public void setBotonEntrenamiento(JButton botonEntrenamiento) {
 		this.botonEntrenamiento = botonEntrenamiento;
@@ -455,7 +455,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón quitarMusica
-	 * @param quitarMusica
+	 * @param quitarMusica, simple setter
 	 */
 	public void setQuitarMusica(JButton quitarMusica) {
 		this.quitarMusica = quitarMusica;
@@ -463,7 +463,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la botón ponerMusica
-	 * @param ponerMusica
+	 * @param ponerMusica, simple setter
 	 */
 	public void setPonerMusica(JButton ponerMusica) {
 		this.ponerMusica = ponerMusica;
@@ -471,7 +471,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la caja de selección cantidadDigitos 
-	 * @param cantidadDigitos
+	 * @param cantidadDigitos, simple setter
 	 */
 	public void setCantidadDigitos(JComboBox<Integer> cantidadDigitos) {
 		this.cantidadDigitos = cantidadDigitos;
@@ -479,7 +479,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la caja de selección repetirDigitos
-	 * @param repetirDigitos
+	 * @param repetirDigitos, simple setter
 	 */
 	public void setRepetirDigitos(JComboBox<String> repetirDigitos) {
 		this.repetirDigitos = repetirDigitos;
@@ -487,7 +487,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la caja de selección cantidadIntentos
-	 * @param cantidadIntentos
+	 * @param cantidadIntentos, simple setter
 	 */
 	public void setCantidadIntentos(JComboBox<Integer> cantidadIntentos) {
 		this.cantidadIntentos = cantidadIntentos;
@@ -495,7 +495,7 @@ public class PanelOpciones extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la caja de selección modoDeJuego
-	 * @param modoDeJuego
+	 * @param modoDeJuego, simple setter
 	 */
 	public void setModoDeJuego(JComboBox<String> modoDeJuego) {
 		this.modoDeJuego = modoDeJuego;

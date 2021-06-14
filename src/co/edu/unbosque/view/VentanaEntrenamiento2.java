@@ -144,7 +144,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorialTitulo
-	 * @param eTutorialTitulo
+	 * @param eTutorialTitulo, simple setter
 	 */
 	public void seteTutorialTitulo(JLabel eTutorialTitulo) {
 		this.eTutorialTitulo = eTutorialTitulo;
@@ -160,7 +160,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial1
-	 * @param eTutorial1
+	 * @param eTutorial1, simple setter
 	 */
 	public void seteTutorial1(JLabel eTutorial1) {
 		this.eTutorial1 = eTutorial1;
@@ -176,7 +176,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial2
-	 * @param eTutorial2
+	 * @param eTutorial2, simple setter
 	 */
 	public void seteTutorial2(JLabel eTutorial2) {
 		this.eTutorial2 = eTutorial2;
@@ -192,7 +192,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial3
-	 * @param eTutorial3
+	 * @param eTutorial3, simple setter
 	 */
 	public void seteTutorial3(JLabel eTutorial3) {
 		this.eTutorial3 = eTutorial3;
@@ -208,7 +208,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial4
-	 * @param eTutorial4
+	 * @param eTutorial4, simple setter
 	 */
 	public void seteTutorial4(JLabel eTutorial4) {
 		this.eTutorial4 = eTutorial4;
@@ -224,7 +224,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial5
-	 * @param eTutorial5
+	 * @param eTutorial5, simple setter
 	 */
 	public void seteTutorial5(JLabel eTutorial5) {
 		this.eTutorial5 = eTutorial5;
@@ -240,7 +240,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial6
-	 * @param eTutorial6
+	 * @param eTutorial6, simple setter
 	 */
 	public void seteTutorial6(JLabel eTutorial6) {
 		this.eTutorial6 = eTutorial6;
@@ -256,7 +256,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 *Método que permite realizar cambios en etiqueta eTutorial7
-	 * @param eTutorial7
+	 * @param eTutorial7, simple setter
 	 */
 	public void seteTutorial7(JLabel eTutorial7) {
 		this.eTutorial7 = eTutorial7;
@@ -272,7 +272,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial8
-	 * @param eTutorial8
+	 * @param eTutorial8, simple setters
 	 */
 	public void seteTutorial8(JLabel eTutorial8) {
 		this.eTutorial8 = eTutorial8;
@@ -288,7 +288,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la etiqueta eTutorial9
-	 * @param eTutorial9
+	 * @param eTutorial9, simple setter
 	 */
 	public void seteTutorial9(JLabel eTutorial9) {
 		this.eTutorial9 = eTutorial9;
@@ -304,7 +304,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la fuente de letra font
-	 * @param font
+	 * @param font, simple setter
 	 */
 	public void setFont(Font font) {
 		this.font = font;
@@ -320,7 +320,7 @@ public class VentanaEntrenamiento2 extends JDialog {
 
 	/**
 	 * Método que permite realizar cambios en la fuente de letra font2
-	 * @param font2
+	 * @param font2, simple setter
 	 */
 	public void setFont2(Font font2) {
 		this.font2 = font2;

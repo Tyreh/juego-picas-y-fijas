@@ -140,7 +140,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite cambiar la imagen de fondo
-	 * @param fondo
+	 * @param fondo, simple setter
 	 */
 	public void setFondo(FondoPrincipal fondo) {
 		this.fondo = fondo;
@@ -148,7 +148,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en panelBienvenida
-	 * @param panelBienvenida
+	 * @param panelBienvenida, simple setter
 	 */
 	public void setPanelBienvenida(PanelBienvenida panelBienvenida) {
 		this.panelBienvenida = panelBienvenida;
@@ -156,7 +156,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en panelopcionesJuego
-	 * @param panelOpcionesJuego
+	 * @param panelOpcionesJuego, simple setter
 	 */
 	public void setPanelOpcionesJuego(PanelOpciones panelOpcionesJuego) {
 		this.panelOpcionesJuego = panelOpcionesJuego;
@@ -164,7 +164,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en panelEntrena
-	 * @param panelEntrena
+	 * @param panelEntrena, simple setter
 	 */
 	public void setPanelEntrena(PanelEntrenamiento panelEntrena) {
 		this.panelEntrena = panelEntrena;
@@ -172,7 +172,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en panelJuego
-	 * @param panelJuego
+	 * @param panelJuego, simple setter
 	 */
 	public void setPanelJuego(PanelJuego panelJuego) {
 		this.panelJuego = panelJuego;
@@ -180,7 +180,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en mensajes
-	 * @param mensajes
+	 * @param mensajes, simple setter
 	 */
 	public void setMensajes(Mensajes mensajes) {
 		this.mensajes = mensajes;
@@ -188,7 +188,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	/**
 	 * Método que permite realizar cambios en ventrena2
-	 * @param ventrena2
+	 * @param ventrena2, simple setter
 	 */
 	public void setVentrena2(VentanaEntrenamiento2 ventrena2) {
 		this.ventrena2 = ventrena2;

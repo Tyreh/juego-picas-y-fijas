@@ -99,7 +99,7 @@ public class PanelBienvenida extends JPanel {
 	
 	 /**
      * Método que permite realizar cambios en el borde del panel
-     * @param tituloBorde
+     * @param tituloBorde, simple setter
      */
 	public void setTituloBorde(TitledBorder tituloBorde) {
 		this.tituloBorde = tituloBorde;
@@ -115,7 +115,7 @@ public class PanelBienvenida extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum1
-	 * @param enum1
+	 * @param enum1, simple setter
 	 */
 	public void setEnum1(JLabel enum1) {
 		this.enum1 = enum1;
@@ -131,7 +131,7 @@ public class PanelBienvenida extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum2
-	 * @param enum2
+	 * @param enum2, simple setter
 	 */
 	public void setEnum2(JLabel enum2) {
 		this.enum2 = enum2;
@@ -147,7 +147,7 @@ public class PanelBienvenida extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enum3
-	 * @param enum3
+	 * @param enum3, simple setter
 	 */
 	public void setEnum3(JLabel enum3) {
 		this.enum3 = enum3;
@@ -162,7 +162,7 @@ public class PanelBienvenida extends JPanel {
 	}
 	/**
 	 * Método que permite realizar cambios en la imagen ak
-	 * @param ak
+	 * @param ak, simple setter
 	 */
 	public void setAk(ImageIcon ak) {
 		this.ak = ak;
@@ -170,7 +170,7 @@ public class PanelBienvenida extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonAceptar
-	 * @param botonAceptar
+	 * @param botonAceptar, simple setter
 	 */
 	public void setBotonAceptar(JButton botonAceptar) {
 		this.botonAceptar = botonAceptar;

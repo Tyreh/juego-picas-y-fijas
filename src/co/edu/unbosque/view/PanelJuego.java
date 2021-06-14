@@ -250,7 +250,7 @@ public class PanelJuego extends JPanel {
     
     /**
      * Método que permite realizar cambios en la tabla del jugador 1
-     * @param tabla1
+     * @param tabla1, simple setter
      */
 	public void setTabla1(JTable tabla1) {
 		this.tabla1 = tabla1;
@@ -266,7 +266,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * MMétodo que permite realizar cambios en el scroll pane del jugador 1
-	 * @param scroll1
+	 * @param scroll1, simple setter
 	 */
 	public void setScroll1(JScrollPane scroll1) {
 		this.scroll1 = scroll1;
@@ -282,7 +282,7 @@ public class PanelJuego extends JPanel {
 	
 	 /**
      * Método que permite realizar cambios en la tabla del jugador 2
-     * @param tabla2
+     * @param tabla2, simple setter
      */
 	public void setTabla2(JTable tabla2) {
 		this.tabla2 = tabla2;
@@ -298,7 +298,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en el scroll pane del jugador 2
-	 * @param scroll2
+	 * @param scroll2, simple setter
 	 */
 	public void setScroll2(JScrollPane scroll2) {
 		this.scroll2 = scroll2;
@@ -314,7 +314,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en la imagen teclado
-	 * @param teclado
+	 * @param teclado, simple setter
 	 */
 	public void setTeclado(ImageIcon teclado) {
 		this.teclado = teclado;
@@ -330,7 +330,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la imagen pista
-	 * @param pista
+	 * @param pista, simple setter
 	 */
 	public void setPista(ImageIcon pista) {
 		this.pista = pista;
@@ -346,7 +346,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en el gif gif1
-	 * @param gif1
+	 * @param gif1, simple setter
 	 */
 	public void setGif1(ImageIcon gif1) {
 		this.gif1 = gif1;
@@ -362,7 +362,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la fuente font
-	 * @param font
+	 * @param font, simple setter
 	 */
 	public void setFont(Font font) {
 		this.font = font;
@@ -378,7 +378,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la fuente font1
-	 * @param font1
+	 * @param font1, simple setter
 	 */
 	public void setFont1(Font font1) {
 		this.font1 = font1;
@@ -386,7 +386,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enumJ1
-	 * @param enumJ1
+	 * @param enumJ1, simple setter
 	 */
 	public void setEnumJ1(JLabel enumJ1) {
 		this.enumJ1 = enumJ1;
@@ -394,7 +394,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta enumJ2
-	 * @param enumJ2
+	 * @param enumJ2, simple setter
 	 */
 	public void setEnumJ2(JLabel enumJ2) {
 		this.enumJ2 = enumJ2;
@@ -402,7 +402,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el campo de texto campoJ1
-	 * @param campoJ1
+	 * @param campoJ1, simple setter
 	 */
 	public void setCampoJ1(JTextField campoJ1) {
 		this.campoJ1 = campoJ1;
@@ -410,7 +410,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el campo de texto campoJ2
-	 * @param campoJ2
+	 * @param campoJ2, simple setter
 	 */
 	public void setCampoJ2(JTextField campoJ2) {
 		this.campoJ2 = campoJ2;
@@ -418,7 +418,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonIngresarJ1
-	 * @param botonIngresarJ1
+	 * @param botonIngresarJ1, simple setter
 	 */
 	public void setBotonIngresarJ1(JButton botonIngresarJ1) {
 		this.botonIngresarJ1 = botonIngresarJ1;
@@ -426,7 +426,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonIngresarJ2
-	 * @param botonIngresarJ2
+	 * @param botonIngresarJ2, simple setter
 	 */
 	public void setBotonIngresarJ2(JButton botonIngresarJ2) {
 		this.botonIngresarJ2 = botonIngresarJ2;
@@ -434,7 +434,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonPistaJ1
-	 * @param botonPistaJ1
+	 * @param botonPistaJ1, simple setter
 	 */
 	public void setBotonPistaJ1(JButton botonPistaJ1) {
 		this.botonPistaJ1 = botonPistaJ1;
@@ -442,7 +442,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonPistaJ2
-	 * @param botonPistaJ2
+	 * @param botonPistaJ2, simple setter
 	 */
 	public void setBotonPistaJ2(JButton botonPistaJ2) {
 		this.botonPistaJ2 = botonPistaJ2;
@@ -450,7 +450,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 *Método que permite realizar cambios en el botón botonVolver
-	 * @param botonVolver
+	 * @param botonVolver, simple setter
 	 */
 	public void setBotonVolver(JButton botonVolver) {
 		this.botonVolver = botonVolver;
@@ -458,7 +458,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el botón botonInformacion
-	 * @param botonInformacion
+	 * @param botonInformacion, simple setter
 	 */
 	public void setBotonInformacion(JButton botonInformacion) {
 		this.botonInformacion = botonInformacion;
@@ -466,7 +466,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la cabecera de la tabla del jugador 1
-	 * @param mod1
+	 * @param mod1, simple setter
 	 */
 	public void setMod1(DefaultTableModel mod1) {
 		this.mod1 = mod1;
@@ -474,7 +474,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la cabecera de la tabla del jugador 2
-	 * @param mod2
+	 * @param mod2, simple setter
 	 */
 	public void setMod2(DefaultTableModel mod2) {
 		this.mod2 = mod2;
@@ -482,7 +482,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en el borde del panel
-	 * @param borde
+	 * @param borde, simple setter
 	 */
 	public void setBorde(TitledBorder borde) {
 		this.borde = borde;
@@ -490,7 +490,7 @@ public class PanelJuego extends JPanel {
 	
 	/**
 	 * Método que permite realizar cambios en la etiqueta gif
-	 * @param gif
+	 * @param gif, simple setter
 	 */
 	public void setGif(JLabel gif) {
 		this.gif = gif;
