@@ -42,7 +42,7 @@ public class PanelOpciones extends JPanel {
         TitledBorder borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
 
-        enum1 = new JLabel("Seleccione sus opciones de juego");
+        enum1 = new JLabel("Selecciona tus opciones de juego");
         enum1.setFont(new Font("", Font.BOLD, 14));
         enum1.setFont(fuente2);
         enum1.setBounds(115, 40, 250, 20);
@@ -60,12 +60,12 @@ public class PanelOpciones extends JPanel {
         enum3.setBounds(255, 5, 250, 20);
         add(enum3);
 
-        enum4 = new JLabel("Cantidad de digitos: ");
+        enum4 = new JLabel("Cantidad de dígitos: ");
         enum4.setFont(fuente2);
         enum4.setBounds(82, 80, 200, 20);
         add(enum4);
 
-        enum5 = new JLabel("Repeticion de digitos: ");
+        enum5 = new JLabel("Repetición de dígitos: ");
         enum5.setFont(fuente2);
         enum5.setBounds(82, 110, 200, 20);
         add(enum5);
@@ -128,6 +128,7 @@ public class PanelOpciones extends JPanel {
 
         quitarMusica = new JButton();
         quitarMusica.setBounds(410, 215, 30, 30);
+        quitarMusica.setToolTipText("¡Haz clic para desactivar la música!");
         quitarMusica.setOpaque(false);
         quitarMusica.setContentAreaFilled(false);
         quitarMusica.setBorderPainted(false);
@@ -138,6 +139,7 @@ public class PanelOpciones extends JPanel {
 
         ponerMusica = new JButton();
         ponerMusica.setBounds(410, 215, 30, 30);
+        ponerMusica.setToolTipText("¡Haz clic para activar la música!");
         ponerMusica.setOpaque(false);
         ponerMusica.setContentAreaFilled(false);
         ponerMusica.setBorderPainted(false);

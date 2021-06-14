@@ -119,6 +119,8 @@ public class Controller implements ActionListener {
                     ventanaPrincipal.getPanelJuego().getBotonPistaJ2().setEnabled(false);
                     ventanaPrincipal.getPanelJuego().getMod1().setRowCount(0);
                     ventanaPrincipal.getPanelJuego().getMod2().setRowCount(0);
+                    ventanaPrincipal.getPanelJuego().getCampoJ1().setToolTipText("¡Ingresa un número de " + seleccionCantidadDigitos + " dígitos para descifrar el código!");
+                    ventanaPrincipal.getPanelJuego().getCampoJ2().setToolTipText("¡Ingresa un número de " + seleccionCantidadDigitos + " dígitos para descifrar el código!");
                     contadorIntentosJ1 = 0;
                     contadorIntentosJ2 = 0;
 
@@ -154,7 +156,7 @@ public class Controller implements ActionListener {
                     }
 
                     System.out.println("==========================================");
-                    System.out.println("Opciones de juego: ");
+                    System.out.println("Opciones de juego: (DEBUG)");
                     System.out.println("    Numero aleatorio de " + seleccionCantidadDigitos + " generado: " + aleatorioGenerado);
                     System.out.println("    Cantidad de intentos: " + seleccionCantidadIntentos);
                     System.out.println("    Repeticion de digitos: " + Objects.requireNonNull((String) ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem()));

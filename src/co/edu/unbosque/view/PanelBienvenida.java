@@ -40,6 +40,7 @@ public class PanelBienvenida extends JPanel {
         botonAceptar.setOpaque(false);
         botonAceptar.setContentAreaFilled(false);
         botonAceptar.setBorderPainted(false);
+        botonAceptar.setToolTipText("¡Haz clic para comenzar a jugar!");
         botonAceptar.setActionCommand("VAMOS_A_ROBAR");
         ImageIcon ak = new ImageIcon("src/Images/Ak1.png");
         botonAceptar.setIcon(new ImageIcon(ak.getImage().getScaledInstance(botonAceptar.getWidth(), botonAceptar.getHeight(), Image.SCALE_SMOOTH)));
