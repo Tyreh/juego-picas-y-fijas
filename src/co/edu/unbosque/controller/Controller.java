@@ -273,6 +273,7 @@ public class Controller implements ActionListener {
 
                         sonidowin.stop();
                         sonido.start();
+                        ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(true);
 
                     } else if (String.valueOf(numeroAleatorioMaquina).equals(aleatorioGenerado)) {
                         sonido.stop();
@@ -295,6 +296,7 @@ public class Controller implements ActionListener {
 
                         sonidowin.stop();
                         sonido.start();
+                        ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(true);
                     }
                     break;
                 case "INGRESAR_J2":
@@ -334,6 +336,7 @@ public class Controller implements ActionListener {
 
                         sonidowin.stop();
                         sonido.start();
+                        ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(true);
                     }
                     break;
                 case "PISTA_J1":
@@ -393,6 +396,7 @@ public class Controller implements ActionListener {
 
             sonidoloser.stop();
             sonido.start();
+            ventanaPrincipal.getPanelOpcionesJuego().getQuitarMusica().setVisible(true);
         }
 
         ventanaPrincipal.getPanelOpcionesJuego().getPuntajeJ1().setText(String.valueOf(puntajeJ1));
