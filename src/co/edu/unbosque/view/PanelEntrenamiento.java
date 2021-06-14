@@ -8,50 +8,117 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Clase que permite crear un panel, este caso el panel del modo entrenamiento
+ *@author Oscar Moreno
+ *@author Nicolas Camacho
+ *@author Tomas Espitia
+ *@author Nelson Fandiño
+ *
+ */
 public class PanelEntrenamiento extends JPanel {
-
-    private JLabel ep1;
-    private JLabel ep2;
-
-    private JTextField cnum1;
-    private JTextField cnum2;
-
-    private JButton baceptar1;
-    private JButton baceptar2;
-
-    private JButton bayuda1;
-    private JButton bayuda2;
-
-    private JButton bvolver;
-    private JButton btutorial;
-
-    private DefaultTableModel mod1;
-    private JTable tabla1;
-    private JScrollPane scroll1;
-
-    private DefaultTableModel mod2;
-    private JTable tabla2;
-    private JScrollPane scroll2;
-
-    private TitledBorder borde;
-
-    private ImageIcon teclado;
-    private ImageIcon pista;
-
+	/**
+	 * Etiqueta donde aparece el lugar del jugador 1 y el texto de ingresar sus números
+	 */
+	private JLabel ep1;
+	/**
+	 *Etiqueta donde aparece el lugar del jugador 2 y el texto de ingresar sus números 
+	 */
+	private JLabel ep2;
+	/**
+	 * Campo de ingreso de números para el jugador 1
+	 */
+	private JTextField cnum1;
+	/**
+	 * Campo de ingreso de números para el jugador 1
+	 */
+	private JTextField cnum2;
+	/**
+	 * Botón que permite el ingreso de los numeros digitados por el jugador 1
+	 */
+	private JButton baceptar1;
+	/**
+	 * Botón que permite el ingreso de los numeros digitados por el jugador 2
+	 */
+	private JButton baceptar2;
+	/**
+	 * Botón que permite acceder a las ayudas del jugador 1
+	 */
+	private JButton bayuda1;
+	/**
+	 * Botón que permite acceder a las ayudas del jugador 2
+	 */
+	private JButton bayuda2;
+	/**
+	 * Botón que permite volver al panel de opciones del juego
+	 */
+	private JButton bvolver;
+	/**
+	 * Botón que permite llamar un JDialog el cual muestra la forma de jugar
+	 */
+	private JButton btutorial;
+	/**
+	 * Nombres de cabecera de los espacios de la tabla del jugador 1
+	 */
+	private DefaultTableModel mod1;
+	/**
+	 * Tabla del jugador 1
+	 */
+	private JTable tabla1;
+	/**
+	 * Permite que la tabla del jugador 1 tenga un scroll si se necesita
+	 */
+	private JScrollPane scroll1;
+	/**
+	 * Nombres de cabecera de los espacios de la tabla del jugador 2
+	 */
+	private DefaultTableModel mod2;
+	/**
+	 * Tabla del jugador 2
+	 */
+	private JTable tabla2;
+	/**
+	 * Permite que la tabla del jugador 2 tenga un scroll si se necesita
+	 */
+	private JScrollPane scroll2;
+	/**
+	 * Genera un borde alrededor del panel
+	 */
+	private TitledBorder borde;
+	/**
+	 * Imagen que aparece sobre los botones que permiten el ingreso de los números
+	 */
+	private ImageIcon teclado;
+	/**
+	 * Imagen que aparece sobre los botones que permiten acceder a las pistas
+	 */
+	private ImageIcon pista;
+	/**
+	 * Tipo de fuente usada en las tablas
+	 */
+	private Font font;
+	/**
+	 * Tipo de fuente usada en las etiquetas
+	 */
+	private Font font1;
+	/**
+	 * Constructor de la clase PanelEntrenamiento
+	 */
     public PanelEntrenamiento() {
         setLayout(null);
         inicializarComponentes();
         setVisible(false);
     }
-
+    /**
+     * Método que permite iniciar cada atributo del panel para ser añadido a este, además de permitir estilizarlo
+     */
     public void inicializarComponentes() {
         setBackground(Color.cyan);
 
         borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
-        Font font = new Font("Century Gothic", Font.BOLD, 12);
-        Font font1 = new Font("Century Gothic", Font.BOLD, 14);
+        font = new Font("Century Gothic", Font.BOLD, 12);
+        font1 = new Font("Century Gothic", Font.BOLD, 14);
         borde.setTitleFont(font);
 
 
