@@ -22,9 +22,4 @@ public class Mensajes {
         JOptionPane.showMessageDialog(null, mensaje, "Robo al banco", JOptionPane.PLAIN_MESSAGE, sinIntentos);
         return true;
     }
-
-    public boolean mostrarInfoOpciones(String mensaje) {
-        JOptionPane.showOptionDialog(null, mensaje, "Robo al banco", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
-        return true;
-    }
 }

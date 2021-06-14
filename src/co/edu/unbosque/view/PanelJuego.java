@@ -31,9 +31,9 @@ public class PanelJuego extends JPanel {
     private TitledBorder borde;
     private ImageIcon teclado;
     private ImageIcon pista;
-    
+
     private JLabel gif;
-	private ImageIcon gif1;
+    private ImageIcon gif1;
 
     public PanelJuego() {
         setLayout(null);
@@ -42,17 +42,17 @@ public class PanelJuego extends JPanel {
     }
 
     public void inicializarComponentes() {
-    	setBackground(Color.cyan);
+        setBackground(Color.CYAN);
 
         borde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(borde);
-        
-        Font font = new Font("Century Gothic", Font.BOLD, 12);
-    	Font font1 = new Font("Century Gothic", Font.BOLD, 14);
-		borde.setTitleFont(font);
-		setBorder(borde);
 
-		botonInformacion = new JButton("<html> Información de juego</html>");
+        Font font = new Font("Century Gothic", Font.BOLD, 12);
+        Font font1 = new Font("Century Gothic", Font.BOLD, 14);
+        borde.setTitleFont(font);
+        setBorder(borde);
+
+        botonInformacion = new JButton("<html> Información de juego</html>");
         botonInformacion.setBounds(345, 15, 160, 20);
         botonInformacion.setActionCommand("INFORMACION_JUEGO");
         add(botonInformacion);
@@ -61,7 +61,7 @@ public class PanelJuego extends JPanel {
         botonVolver.setBounds(375, 460, 100, 20);
         add(botonVolver);
         botonVolver.setActionCommand("RENDICION");
-        
+
         //Gif
         gif = new JLabel();
         gif.setBounds(550, 15, 142, 80);
@@ -103,7 +103,7 @@ public class PanelJuego extends JPanel {
         botonPistaJ1.setActionCommand("PISTA_J1");
         add(botonPistaJ1);
 
-        mod1 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
+        mod1 = new DefaultTableModel(new String[]{"# Intento", "Número", "Picas", "Fijas"}, 0);
         tabla1 = new JTable(mod1);
         tabla1.setEnabled(false);
         tabla1.setFont(font);
@@ -147,7 +147,7 @@ public class PanelJuego extends JPanel {
         botonPistaJ2.setActionCommand("PISTA_J2");
         add(botonPistaJ2);
 
-        mod2 = new DefaultTableModel(new String[] {"# Intento","Número", "Picas", "Fijas"}, 0);
+        mod2 = new DefaultTableModel(new String[]{"# Intento", "Número", "Picas", "Fijas"}, 0);
         tabla2 = new JTable(mod2);
         tabla2.setEnabled(false);
         tabla2.setFont(font);
@@ -164,8 +164,8 @@ public class PanelJuego extends JPanel {
     }
 
     public JLabel getGif() {
-		return gif;
-	}
+        return gif;
+    }
 
     public JButton getBotonVolver() {
         return botonVolver;

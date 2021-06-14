@@ -14,9 +14,9 @@ public class VentanaPrincipal extends JFrame {
 
 
     public VentanaPrincipal() {
-        FondoPrincipal fondo = new FondoPrincipal();
+        fondo = new FondoPrincipal();
         setTitle("Robo al banco");
-        setSize(500, 310);
+        setSize(500, 280);
         setContentPane(fondo);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -29,12 +29,10 @@ public class VentanaPrincipal extends JFrame {
     public void inicializarComponentes() {
 
         panelBienvenida = new PanelBienvenida();
-        //panelBienvenida.setBounds(15,15,455,215);
         panelBienvenida.setBounds(15, 15, 465, 250);
         getContentPane().add(panelBienvenida);
 
         panelOpcionesJuego = new PanelOpciones();
-        //panelOpcionesJuego.setBounds(15,15,455,215);
         panelOpcionesJuego.setBounds(15, 15, 465, 250);
         getContentPane().add(panelOpcionesJuego);
 
@@ -45,14 +43,13 @@ public class VentanaPrincipal extends JFrame {
         panelEntrena = new PanelEntrenamiento();
         panelEntrena.setBounds(15, 15, 850, 490);
         getContentPane().add(panelEntrena);
-        
+
         ventrena2 = new VentanaEntrenamiento2();
-        ventrena2.setBounds(15,15,465,220);
-        
+        ventrena2.setBounds(15, 15, 465, 220);
 
         mensajes = new Mensajes();
     }
-    
+
     public VentanaEntrenamiento2 getVentrena2() {
         return ventrena2;
     }

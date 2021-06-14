@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class PanelBienvenida extends JPanel {
     private JButton botonAceptar;
+
     public PanelBienvenida() {
         setLayout(null);
         inicializarComponentes();
@@ -14,7 +15,7 @@ public class PanelBienvenida extends JPanel {
     }
 
     public void inicializarComponentes() {
-        setBackground(Color.cyan);
+        setBackground(Color.CYAN);
 
         TitledBorder tituloBorde = new TitledBorder(new LineBorder(Color.BLACK, 1, false));
         setBorder(tituloBorde);
@@ -44,7 +45,7 @@ public class PanelBienvenida extends JPanel {
         botonAceptar.setIcon(new ImageIcon(ak.getImage().getScaledInstance(botonAceptar.getWidth(), botonAceptar.getHeight(), Image.SCALE_SMOOTH)));
         add(botonAceptar);
     }
-   
+
     public JButton getBotonAceptar() {
         return botonAceptar;
     }

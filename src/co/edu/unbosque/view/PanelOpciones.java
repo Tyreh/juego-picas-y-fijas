@@ -21,7 +21,7 @@ public class PanelOpciones extends JPanel {
     private ImageIcon qmusica;
     private JButton ponerMusica;
     private ImageIcon pmusica;
-    
+
     JComboBox<Integer> cantidadDigitos;
     JComboBox<String> repetirDigitos;
     JComboBox<Integer> cantidadIntentos;
@@ -34,7 +34,8 @@ public class PanelOpciones extends JPanel {
     }
 
     public void inicializarComponentes() {
-    	setBackground(Color.CYAN);
+        setBackground(Color.CYAN);
+
         Font fuente1 = new Font("Century Gothic", Font.BOLD, 11);
         Font fuente2 = new Font("Century Gothic", Font.BOLD, 13);
 
@@ -124,7 +125,7 @@ public class PanelOpciones extends JPanel {
         botonEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
         botonEntrenamiento.setActionCommand("PLANEAR_ROBO");
         add(botonEntrenamiento);
-        
+
         quitarMusica = new JButton();
         quitarMusica.setBounds(410, 215, 30, 30);
         quitarMusica.setOpaque(false);
@@ -134,7 +135,7 @@ public class PanelOpciones extends JPanel {
         quitarMusica.setIcon(new ImageIcon(qmusica.getImage().getScaledInstance(quitarMusica.getWidth(), quitarMusica.getHeight(), Image.SCALE_SMOOTH)));
         quitarMusica.setActionCommand("QUITARSON");
         add(quitarMusica);
-        
+
         ponerMusica = new JButton();
         ponerMusica.setBounds(410, 215, 30, 30);
         ponerMusica.setOpaque(false);
@@ -146,18 +147,17 @@ public class PanelOpciones extends JPanel {
         ponerMusica.setActionCommand("PONERSON");
         add(ponerMusica);
     }
-    
-    
+
 
     public JButton getPonerMusica() {
-		return ponerMusica;
-	}
+        return ponerMusica;
+    }
 
-	public JButton getQuitarMusica() {
-		return quitarMusica;
-	}
+    public JButton getQuitarMusica() {
+        return quitarMusica;
+    }
 
-	public JButton getBotonEmpezarRobo() {
+    public JButton getBotonEmpezarRobo() {
         return botonEmpezarRobo;
     }
 

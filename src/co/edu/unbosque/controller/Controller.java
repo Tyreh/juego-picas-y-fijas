@@ -25,8 +25,8 @@ public class Controller implements ActionListener {
     private int contadorIntentosJ1 = 0;
     private int contadorIntentosJ2 = 0;
     private int seleccionCantidadIntentos;
-    private int puntajeJ1 = 10;
-    private int puntajeJ2 = 10;
+    private int puntajeJ1 = 30;
+    private int puntajeJ2 = 30;
     private Clip sonido;
     private Clip sonidowin;
     private Clip sonidoloser;
