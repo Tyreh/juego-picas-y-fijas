@@ -56,6 +56,10 @@ public class VentanaEntrenamiento2 extends JDialog {
      */
     private JLabel eTutorial9;
     /**
+     * Botón que permite volver al menú de opciones
+     */
+    private JButton volverOp;
+    /**
      * Fuente usada en el titulo
      */
     private Font font;
@@ -69,13 +73,14 @@ public class VentanaEntrenamiento2 extends JDialog {
     public VentanaEntrenamiento2() {
         setTitle("Entrenamiento");
 
-        setSize(555, 320);
+        setSize(555, 390);
         setLayout(null);
         getContentPane().setBackground(Color.cyan);
         inicializarComponentes();
         setVisible(false);
         setLocationRelativeTo(null);
         setResizable(true);
+        setDefaultCloseOperation(0);
     }
     /**
      * Método que permite iniciar cada atributo del panel para ser añadido a este, además de permitir estilizarlo
@@ -133,6 +138,11 @@ public class VentanaEntrenamiento2 extends JDialog {
         eTutorial9.setFont(font);
         eTutorial9.setBounds(5, 257, 550, 20);
         add(eTutorial9);
+        
+        volverOp = new JButton("Volver");
+        volverOp.setBounds(210, 290, 100, 20);
+        add(volverOp);
+        volverOp.setActionCommand("VOLVERME");
 
     }
 
@@ -326,6 +336,20 @@ public class VentanaEntrenamiento2 extends JDialog {
 	 */
 	public void setFont2(Font font2) {
 		this.font2 = font2;
+	}
+	/**
+	 * Método que permite obtener el botón volverOp
+	 * @return volverOp
+	 */
+	public JButton getVolverOp() {
+		return volverOp;
+	}
+	/**
+	 * Método que permite realizar cambios en el botón volverOp
+	 * @param volverOp, simple setter
+	 */
+	public void setVolverOp(JButton volverOp) {
+		this.volverOp = volverOp;
 	}
     
     

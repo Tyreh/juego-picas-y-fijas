@@ -20,10 +20,6 @@ public class VentanaPrincipal extends JFrame {
      */
     private PanelOpciones panelOpcionesJuego;
     /**
-     *Objeto de la clase PanelEntrenamiento, que permite traer el panel del modo entrenamiento y mostrarlo
-     */
-    private PanelEntrenamiento panelEntrena;
-    /**
      * Objeto de la clase PanelJuego, que permite traer el panel del juego principal y mostrarlo
      */
     private PanelJuego panelJuego;
@@ -72,12 +68,8 @@ public class VentanaPrincipal extends JFrame {
         panelJuego.setBounds(15, 15, 850, 490);
         getContentPane().add(panelJuego);
 
-        panelEntrena = new PanelEntrenamiento();
-        panelEntrena.setBounds(15, 15, 850, 490);
-        getContentPane().add(panelEntrena);
-
         ventrena2 = new VentanaEntrenamiento2();
-        ventrena2.setBounds(15, 15, 465, 220);
+        ventrena2.setBounds(15, 15, 550, 370);
 
         mensajes = new Mensajes();
     }
@@ -121,15 +113,7 @@ public class VentanaPrincipal extends JFrame {
     public PanelBienvenida getPanelBienvenida() {
         return panelBienvenida;
     }
-
-    /**
-     * Método que permite obtener el panel panelEntrena
-     * @return panelEntrena
-     */
-    public PanelEntrenamiento getPanelEntrena() {
-        return panelEntrena;
-    }
-    
+  
     /**
      * Método que permite obtener la imagen de fondo en el frame
      * @return fondo
@@ -163,14 +147,6 @@ public class VentanaPrincipal extends JFrame {
 	}
 	
 	/**
-	 * Método que permite realizar cambios en panelEntrena
-	 * @param panelEntrena, simple setter
-	 */
-	public void setPanelEntrena(PanelEntrenamiento panelEntrena) {
-		this.panelEntrena = panelEntrena;
-	}
-	
-	/**
 	 * Método que permite realizar cambios en panelJuego
 	 * @param panelJuego, simple setter
 	 */
@@ -193,6 +169,8 @@ public class VentanaPrincipal extends JFrame {
 	public void setVentrena2(VentanaEntrenamiento2 ventrena2) {
 		this.ventrena2 = ventrena2;
 	}
+	
+	
 
     
 

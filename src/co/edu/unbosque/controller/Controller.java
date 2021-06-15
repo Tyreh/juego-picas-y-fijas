@@ -12,6 +12,7 @@ import java.util.Objects;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.JFrame;
 /**
  * Clase encargada de la ejecución.
  *@author Oscar Dario Moreno
@@ -108,9 +109,9 @@ public class Controller implements ActionListener {
         ventanaPrincipal.getPanelJuego().getBotonPistaJ2().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonVolver().addActionListener(this);
         ventanaPrincipal.getPanelJuego().getBotonInformacion().addActionListener(this);
+        
+        ventanaPrincipal.getVentrena2().getVolverOp().addActionListener(this);
 
-        ventanaPrincipal.getPanelEntrena().getBvolver().addActionListener(this);
-        ventanaPrincipal.getPanelEntrena().getBtutorial().addActionListener(this);
     }
     /**
      * Método encargado de llamar la función para cada bóton.
@@ -221,12 +222,12 @@ public class Controller implements ActionListener {
                     System.out.println("==========================================");
                     break;
                 case "PLANEAR_ROBO":
-                    ventanaPrincipal.getPanelEntrena().getBorde().setTitle("Modo Entrenamiento");
+                    ventanaPrincipal.getVentrena2().setTitle("Modo Entrenamiento");
                     ventanaPrincipal.getPanelOpcionesJuego().setVisible(false);
-                    ventanaPrincipal.setSize(900, 550);
+                    ventanaPrincipal.setSize(590, 400);
                     ventanaPrincipal.setLocationRelativeTo(null);
-                    ventanaPrincipal.getPanelEntrena().setVisible(true);
-                    ventrena2.setVisible(true);
+                    ventanaPrincipal.getVentrena2().setVisible(true);
+                    ventanaPrincipal.getVentrena2().setLocationRelativeTo(null);
                     break;
                 case "INGRESAR_J1":
                     textoIngresado = ventanaPrincipal.getPanelJuego().getCampoJ1().getText();
@@ -366,9 +367,13 @@ public class Controller implements ActionListener {
                             "  Repetición de dígitos: " + ventanaPrincipal.getPanelOpcionesJuego().getRepetirDigitos().getSelectedItem() + "\n" +
                             "  Modo de juego: " + ventanaPrincipal.getPanelOpcionesJuego().getModoDeJuego().getSelectedItem());
                     break;
-                case "TUTORIAL":
-                    ventrena2.setVisible(true);
-                    break;
+                    
+                case "VOLVERME":
+                    ventanaPrincipal.getVentrena2().setVisible(false);
+                    ventanaPrincipal.getPanelOpcionesJuego().setVisible(true);
+                    ventanaPrincipal.setSize(500, 310);
+                    ventanaPrincipal.setLocationRelativeTo(null);
+                    break;    
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException | ArrayIndexOutOfBoundsException exception) {
             ventanaPrincipal.getMensajes().mostrarError("El código ingresado debe ser un numero entero de " + seleccionCantidadDigitos + " dígitos.");
