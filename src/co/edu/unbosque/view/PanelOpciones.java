@@ -198,7 +198,7 @@ public class PanelOpciones extends JPanel {
         botonEmpezarRobo.setActionCommand("EMPEZAR_EL_ROBO");
         add(botonEmpezarRobo);
 
-        botonEntrenamiento = new JButton("<html><center>Planear Robo<br>(Modo entrenamiento)</html>");
+        botonEntrenamiento = new JButton("<html><center>¿Cómo robar?<br>(Modo entrenamiento)</html>");
         botonEntrenamiento.setFont(fuente1);
         botonEntrenamiento.setBounds(223, 210, 160, 32);
         botonEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);

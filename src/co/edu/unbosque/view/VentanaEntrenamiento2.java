@@ -79,7 +79,7 @@ public class VentanaEntrenamiento2 extends JDialog {
         inicializarComponentes();
         setVisible(false);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(0);
     }
     /**
